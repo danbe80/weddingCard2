@@ -1,55 +1,26 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+  <q-page class="row items-center justify-evenly" style="min-height: 100%">
+    <q-page-container>
+
+      <q-intersection
+        v-for="index in 4"
+        :key="index"
+        once
+        transition="slide-down"
+        class="example-item"
+      >
+        <q-card  flat style="width: 100vw; height: 100vh">
+          <img src="../assets/page1_panel.png" alt="ddd" style="position: relative; top: 0; right: 0; z-index: 2"/>
+          <img src="../assets/Page1_Photo5.png"  style="position: absolute; top: 0; right: 0; z-index: 1" />
+          <!--        <img src="../assets/Page1_Photo1.png"  style="position: absolute; top: 0; right: 0; width: 100%; height: 100%; z-index: 1" />-->
+        </q-card>
+      </q-intersection>
+
+
+    </q-page-container>
   </q-page>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
-import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
+<script lang="ts" setup>
 
-export default defineComponent({
-  name: 'IndexPage',
-
-  components: {
-    ExampleComponent
-  },
-
-  setup () {
-    const todos = ref<Todo[]>([
-      {
-        id: 1,
-        content: 'ct1'
-      },
-      {
-        id: 2,
-        content: 'ct2'
-      },
-      {
-        id: 3,
-        content: 'ct3'
-      },
-      {
-        id: 4,
-        content: 'ct4'
-      },
-      {
-        id: 5,
-        content: 'ct5'
-      }
-    ]);
-
-    const meta = ref<Meta>({
-      totalCount: 1200
-    });
-
-    return { todos, meta };
-  }
-});
 </script>
