@@ -7,18 +7,17 @@
 
     <q-carousel
       v-model="slide"
-      vertical
       swipeable
       animated
-      transition-prev="slide-down"
-      transition-next="slide-up"
-      style="height: 100vh; width: 100vw;"
+      transition-prev="slide-right"
+      transition-next="slide-left"
+      style="height: 100vh; width: 100vw;background-color: rgba(0,0,0,0)"
     >
       <q-carousel-slide :name="1" style="padding: 0">
         <MainFirstComponent />
       </q-carousel-slide>
 
-      <q-carousel-slide :name="2">
+      <q-carousel-slide :name="2" style="padding: 0">
         <MainSeconeComponnet />
       </q-carousel-slide>
 
