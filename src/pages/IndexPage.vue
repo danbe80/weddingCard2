@@ -1,26 +1,40 @@
 <template>
-  <q-page class="row items-center justify-evenly" style="min-height: 100%">
-    <q-page-container>
+  <q-page class="row items-center justify-evenly text-center" style="height: 100vh; color: #72605c;">
 
-      <q-intersection
-        v-for="index in 4"
-        :key="index"
-        once
-        transition="slide-down"
-        class="example-item"
-      >
-        <q-card  flat style="width: 100vw; height: 100vh">
-          <img src="../assets/page1_panel.png" alt="ddd" style="position: relative; top: 0; right: 0; z-index: 2"/>
-          <img src="../assets/Page1_Photo5.png"  style="position: absolute; top: 0; right: 0; z-index: 1" />
-          <!--        <img src="../assets/Page1_Photo1.png"  style="position: absolute; top: 0; right: 0; width: 100%; height: 100%; z-index: 1" />-->
-        </q-card>
-      </q-intersection>
+    <!-- 백그라운드 -->
+    <img src="../assets/background/page2_bg.png" style="position: absolute; width: 100%; height: 100vh; z-index: 0"/>
+    <!--  백그라운드  -->
 
+    <q-carousel
+      v-model="slide"
+      vertical
+      swipeable
+      animated
+      transition-prev="slide-down"
+      transition-next="slide-up"
+      style="height: 100vh; width: 100vw;"
+    >
+      <q-carousel-slide :name="1" style="padding: 0">
+        <MainFirstComponent />
+      </q-carousel-slide>
 
-    </q-page-container>
+      <q-carousel-slide :name="2">
+        <MainSeconeComponnet />
+      </q-carousel-slide>
+
+      <q-carousel-slide :name="3">
+        <span>333</span>
+      </q-carousel-slide>
+    </q-carousel>
+
   </q-page>
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue';
+import MainFirstComponent from 'components/MainFirstComponent.vue';
+import MainSeconeComponnet from 'components/MainSeconeComponnet.vue';
+
+const slide = ref(1);
 
 </script>
