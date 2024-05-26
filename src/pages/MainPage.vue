@@ -26,7 +26,7 @@
       </q-carousel-slide>
 
       <q-carousel-slide :name="4"  style="padding: 0">
-        <MainThirdComponent />
+        <MainFourComponent />
       </q-carousel-slide>
     </q-carousel>
 
@@ -38,6 +38,7 @@ import { ref } from 'vue';
 import MainFirstComponent from 'components/MainFirstComponent.vue';
 import MainSeconeComponnet from 'components/MainSeconeComponnet.vue';
 import MainThirdComponent from 'components/MainThirdComponent.vue';
+import MainFourComponent from 'components/MainFourComponent.vue';
 
 const slide = ref(1);
 
