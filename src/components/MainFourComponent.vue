@@ -56,9 +56,28 @@
           <img src="../assets/page4/page4_arrow2.png" style="width: 100%; height: 100%"/>
       </div>
     </div>
+
+
+    <q-dialog v-model="icon">
+      <q-card>
+        <q-card-section class="row items-center q-pb-none">
+          <div class="text-h6">Close icon</div>
+          <q-space />
+          <q-btn v-close-popup icon="close" flat round  dense />
+        </q-card-section>
+
+        <q-card-section>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum repellendus sit voluptate voluptas eveniet porro. Rerum blanditiis perferendis totam, ea at omnis vel numquam exercitationem aut, natus minima, porro labore.
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+
   </q-page>
+
 </template>
 <script setup lang="ts">
+import { ref } from 'vue';
+
 const imgRowNum = 3;
 
 const rowUrlObjList = [
@@ -127,8 +146,10 @@ const rowUrlObjList = [
   ],
 ];
 
+const icon = ref(false);
 function onClickImg(s: string) {
   console.log('이미지 클릭', s);
+  icon.value = true;
 }
 </script>
 <style scoped>
