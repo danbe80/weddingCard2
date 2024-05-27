@@ -4,7 +4,6 @@
   <q-page class="row items-center justify-evenly text-center" style="min-height: 100vh; padding: 0; color: #72605c;">
     <q-page-container style="position: absolute; top: 0; width: 100vw; height: 100vh">
       <q-card  flat style="width: 100vw; height: 100vh; border-radius: 0; border: none; background-color: rgba(0,0,0,0)">
-        <q-card flat style="height: 20px"></q-card>
         <img src="../assets/page3/page3_bg.png" style="width: 100vw; height: 100%; position: absolute; top: 0; right: 0; z-index: 2" />
         <q-carousel
           v-model="slide"

@@ -1,6 +1,6 @@
 
 <template>
-  <q-page class="row items-center justify-evenly text-center" style="height: 100vh; padding: 0; color: #72605c;">
+  <q-page class="row items-start justify-evenly text-center" style="height: 100vh; padding: 0; color: #72605c;">
 
     <q-page-container style="position: absolute; top: 0; width: 100vw; height: 100vh">
       <q-card  flat style="width: 100vw; height: 100vh; border-radius: 0; border: none; background-color: rgba(0,0,0,0)">
