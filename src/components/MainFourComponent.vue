@@ -23,17 +23,17 @@
         class="row justify-around items-center"
       >
         <div
-          v-for="(num, idx) in imgRowNum"
+          v-for="(num, idx) in IMG_ROW_NUM"
           :key="`text${num}`"
           class="col-12 row justify-evenly"
           style="height: 32%"
         >
           <div
-            v-for="(sm, i) in imgRowNum"
+            v-for="(sm, i) in IMG_ROW_NUM"
             :key="`text${sm}`"
             class="col-3"
             style="width: 31%; height: 100%"
-            @click="onClickImg(`${rowUrlObjList[idx][i].weddingImg}`)"
+            @click="onClickImg(idx, i)"
           >
             <div
               class="bg_text"
@@ -59,16 +59,20 @@
 
 
     <q-dialog v-model="icon">
-      <q-card>
-        <q-card-section class="row items-center q-pb-none">
-          <div class="text-h6">Close icon</div>
-          <q-space />
-          <q-btn v-close-popup icon="close" flat round  dense />
-        </q-card-section>
+      <q-card style="width: 100vw; height: 60vh; display: flex; align-items: center; justify-content: center">
+          <q-carousel
+            ref="carousel"
+            v-model="slide"
+            swipeable
+            arrows
+            infinite
+            padding
+            style="width: 100vw; height: 100%; padding: 15px; background-color: rgba(0,0,0,0)"
+          >
+            <q-carousel-slide v-for="(img, idx) in allUrlObjList" :key="img.weddingPhoto" :name="idx + 1" style="padding: 0" :img-src="`${img.weddingPhoto}`" />
 
-        <q-card-section>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum repellendus sit voluptate voluptas eveniet porro. Rerum blanditiis perferendis totam, ea at omnis vel numquam exercitationem aut, natus minima, porro labore.
-        </q-card-section>
+          </q-carousel>
+
       </q-card>
     </q-dialog>
 
@@ -78,7 +82,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const imgRowNum = 3;
+const  slide = ref(1);
+const IMG_ROW_NUM = 3;
+
 
 const rowUrlObjList = [
   [
@@ -145,12 +151,54 @@ const rowUrlObjList = [
     },
   ],
 ];
-
+const allUrlObjList = [
+  {
+    weddingPhoto:  new URL(
+      '../assets/page4/Photo_1.jpg',
+      import.meta.url
+    ).href,
+  },
+  {
+    weddingPhoto:  new URL(
+      '../assets/page4/Photo_2.jpg',
+      import.meta.url
+    ).href,
+  },
+  {
+    weddingPhoto:  new URL(
+      '../assets/page4/Photo_3.jpg',
+      import.meta.url
+    ).href,
+  },
+  {
+    weddingPhoto:  new URL(
+      '../assets/page4/Photo_4.jpg',
+      import.meta.url
+    ).href,
+  },
+]
 const icon = ref(false);
-function onClickImg(s: string) {
-  console.log('이미지 클릭', s);
+function onClickImg(rowIdx: number, colIdx: number) {
+  console.log('이미지 클릭');
   icon.value = true;
+  let slideNum = ref(0);
+  switch (rowIdx) {
+    case 0:
+      slideNum.value = colIdx + 1;
+      break;
+
+    case 1:
+      slideNum.value = IMG_ROW_NUM + (colIdx + 1);
+      break;
+
+    case 2:
+      slideNum.value = (IMG_ROW_NUM * 2) + (colIdx + 1);
+      break;
+  }
+
+  slide.value = slideNum.value;
 }
+
 </script>
 <style scoped>
 /*뒷배경 이미지*/
