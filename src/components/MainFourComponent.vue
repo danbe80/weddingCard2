@@ -69,7 +69,7 @@
             padding
             style="width: 100vw; height: 100%; padding: 15px;"
           >
-            <q-carousel-slide v-for="(img, idx) in allUrlObjList" :key="img.weddingPhoto" :name="idx + 1" style="padding: 0" :img-src="`${img.weddingPhoto}`" />
+            <q-carousel-slide v-for="(img, idx) in allUrlObjList" :key="img.weddingPhoto" :name="idx + 1" style="padding: 0; border-radius: 15px;" :img-src="`${img.weddingPhoto}`" />
 
           </q-carousel>
 
