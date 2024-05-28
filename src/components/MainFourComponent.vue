@@ -59,7 +59,7 @@
 
 
     <q-dialog v-model="icon">
-      <q-card style="width: 100vw; height: 60vh; display: flex; align-items: center; justify-content: center">
+      <q-card style="width: 100vw; height: 60vh; display: flex; align-items: center; justify-content: center; border-radius: 15px;">
           <q-carousel
             ref="carousel"
             v-model="slide"
@@ -67,7 +67,7 @@
             arrows
             infinite
             padding
-            style="width: 100vw; height: 100%; padding: 15px; background-color: rgba(0,0,0,0)"
+            style="width: 100vw; height: 100%; padding: 15px;"
           >
             <q-carousel-slide v-for="(img, idx) in allUrlObjList" :key="img.weddingPhoto" :name="idx + 1" style="padding: 0" :img-src="`${img.weddingPhoto}`" />
 
