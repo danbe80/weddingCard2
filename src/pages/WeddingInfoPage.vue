@@ -22,6 +22,7 @@
             active-class="clickActive"
             animated
             swipeable
+            infinite
             indicator-color="transparent"
             outline style="width: 100%; " class="row">
             <q-tab name="First" class="col-4" :ripple="false">
@@ -41,11 +42,12 @@
         </div>
       </div>
 
-      <div class="q-pa-sm q-mt-md" style="background-color: rgba(0,0,0,0); height: 50vh; ">
+      <div class="q-pa-sm q-mt-sm" style="background-color: rgba(0,0,0,0); height: 50vh; ">
           <q-tab-panels
             v-model="panel"
             animated
             swipeable
+            infinite
             class="rounded-borders"
             style="height: 100%; color: #72605c; border: 4px solid #d6bbb4"
           >
