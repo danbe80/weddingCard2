@@ -11,7 +11,7 @@
       <p class="q-mb-none">인터컨티넨탈 파르나스 “5층 그랜드볼룸”</p>
       <div class="row justify-center items-center text-center" style="width: 100%; margin: 0 auto; background-color: #e8d2cc; border-radius: 30px; border: 1.5px solid #bd988d">
         <p class="q-mb-none" style="">서울 강남구 테헤란로 521</p>
-        <q-btn flat :ripple="false" class="row items-center text-center justify-center" style="color: #b19791" >
+        <q-btn flat :ripple="false" class="row items-center text-center justify-center" style="color: #b19791" @click="copyAddress" >
           <div style="width: 15px; height: 15px; margin-bottom: 4px">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill:rgb(177,151,145);">
               <title>content-copy</title>
@@ -24,7 +24,7 @@
 
     <div class="col-9 column justify-around q-mt-md" style="width: 100%; background-color: #f1e3e0; border-radius: 15px;">
 
-      <div class="col-4 row justify-center items-start" style="">
+      <div class="col-4 row justify-center items-start">
         <q-btn flat :ripple="false" class="col-3 q-mr-sm" style="border: 1px solid #bd988d; border-radius: 10px; background-color: #ffffff" >
           <q-card flat class="row justify-center items-center text-center" style="background-color: rgba(0,0,0,0)">
             <div style="width: 100%;">
@@ -52,25 +52,48 @@
         </q-btn>
       </div>
 
-      <div class="col-4" style="width: 100%">
-        <q-card flat style="width: 100%; height: 100%;">
-          <q-img src="../../assets/mapIcon/page6_map_slot.png" width="100%" height="100%"></q-img>
+      <div class="col-5" style="width: 100%; padding: 0 10px;">
+        <q-card flat style="width: 100%; height: 100%; background-color: rgba(0,0,0,0)">
+          <img src="../../assets/mapIcon/page6_map_slot.png" style="width: 100%; height: 100%"/>
         </q-card>
       </div>
 
       <div class="col-3"  style="width: 100%">
-        ddd
+        <p>인터컨티넨탈 서울 코엑스 아닙니다. 주의 부탁드립니다.</p>
+        <q-btn @click="openNotice">교통편 안내</q-btn>
       </div>
     </div>
 
+    <q-dialog v-model="transportNotice">
+      <q-card style="width: 100vw; height: 60vh; display: flex; align-items: center; justify-content: center; border-radius: 15px;">
 
+
+      </q-card>
+
+    </q-dialog>
   </q-card>
 </template>
 <script setup lang="ts">
+import { ref } from 'vue';
+
 const bgImg = new URL(
   '../../assets/background/page2_bg.png',
   import.meta.url
 ).href
+
+const transportNotice = ref(false);
+
+function openNotice() {
+    transportNotice.value = true;
+}
+
+function copyAddress() {
+  let data = ref('서울 강남구 테헤란로 521');
+  navigator.clipboard.writeText(data.value)
+    .then(() => console.log(data.value));
+}
+
+
 
 </script>
 <style scoped>
