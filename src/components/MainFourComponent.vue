@@ -1,7 +1,8 @@
 <template>
-  <q-page
+  <q-card
+    flat
     class="row items-start text-center"
-    style="height: 100vh; padding: 0; color: #72605c"
+    style="height: 100svh; padding: 0; color: #72605c"
   >
     <div class="col-12 bg_img_wrapper">
       <img
@@ -76,7 +77,7 @@
       </q-card>
     </q-dialog>
 
-  </q-page>
+  </q-card>
 
 </template>
 <script setup lang="ts">
@@ -204,37 +205,37 @@ function onClickImg(rowIdx: number, colIdx: number) {
 /*뒷배경 이미지*/
 .bg_img_wrapper {
   width: 100%;
-  height: 40vh;
+  height: 40svh;
 
   @media screen and (max-width: 578px) {
-    height: 38vh;
+    height: 38svh;
   }
   @media (min-width: 578px) and (max-width: 1023px) {
-    height: 35vh;
+    height: 35svh;
   }
 
   @media (min-width: 1024px) and (max-width: 1044px) {
-    height: 35vh;
+    height: 35svh;
   }
 }
 
 .img_list_wrapper {
   width: 100%;
   position: relative;
-  height: 50vh;
+  height: 50svh;
   top: -8%;
 
   @media screen and (max-width: 578px) {
-    height: 50vh;
+    height: 50svh;
     top: -8%;
   }
   @media (min-width: 578px) and (max-width: 1023px) {
-    height: 58vh;
+    height: 58svh;
     top: -10%;
   }
 
   @media (min-width: 1024px) and (max-width: 1044px) {
-    height: 62vh;
+    height: 62svh;
     top: -10%;
   }
 }

@@ -1,8 +1,9 @@
 <template>
-  <q-page class="row items-center justify-evenly text-center" style="height: 100vh; color: #72605c;">
-
+  <q-page
+        class="slide_wrapper"
+          >
     <!-- 백그라운드 -->
-    <img src="../assets/background/page2_bg.png" style="position: absolute; width: 100%; height: 100vh; z-index: 0"/>
+    <img src="../assets/background/page2_bg.png" class="bg-panel" />
     <!--  백그라운드  -->
 
     <q-carousel
@@ -11,25 +12,27 @@
       animated
       transition-prev="slide-right"
       transition-next="slide-left"
-      style="height: 100vh; width: 100vw;background-color: rgba(0,0,0,0)"
+      class="slide_wrap"
     >
-      <q-carousel-slide :name="1" style="padding: 0">
+      <q-carousel-slide :name="1" class="slide_component">
         <MainFirstComponent />
       </q-carousel-slide>
 
-      <q-carousel-slide :name="2" style="padding: 0">
+      <q-carousel-slide
+        :name="2"
+        class="slide_component"
+      >
         <MainSeconeComponnet />
       </q-carousel-slide>
 
-      <q-carousel-slide :name="3" style="padding: 0">
+      <q-carousel-slide :name="3" class="slide_component">
         <MainThirdComponent />
       </q-carousel-slide>
 
-      <q-carousel-slide :name="4"  style="padding: 0">
+      <q-carousel-slide :name="4" class="slide_component">
         <MainFourComponent />
       </q-carousel-slide>
     </q-carousel>
-
   </q-page>
 </template>
 
@@ -41,5 +44,33 @@ import MainThirdComponent from 'components/MainThirdComponent.vue';
 import MainFourComponent from 'components/MainFourComponent.vue';
 
 const slide = ref(1);
-
 </script>
+
+<style scoped>
+.bg-panel {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  min-height: 100svh;
+  z-index: 0;
+}
+
+.slide_wrapper {
+  height: 100dvh;
+  min-height: 100svh;
+  text-align: center;
+  color: #72605c;
+}
+
+.slide_wrap {
+  height: 100svh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.slide_component {
+  padding: 0;
+  height: 100%;
+}
+</style>

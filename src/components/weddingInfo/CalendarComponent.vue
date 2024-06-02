@@ -27,7 +27,7 @@
       <span v-for="day in 6" :key="day" class="date col-1" style="font-size:  4vw;  color: #d6bbb4;">{{
           6 + day
         }}</span>
-      <span  class="wedding_date col-1" style="font-size: 18px; color: #72605c">13</span>
+      <span  class="wedding_date col-1" style="font-size: 4vw; color: #72605c">13</span>
     </div>
     <div class="col-12 week_date_wrapper justify-between items-center row q-mt-sm">
       <span v-for="day in 7" :key="day" class="date col-1" style="font-size:  4vw;  color: #d6bbb4;">{{

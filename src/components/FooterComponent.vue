@@ -1,9 +1,5 @@
-
 <template>
-  <q-btn
-    style="position: fixed; z-index: 10; background-color: #c1957a; width: 100%; height: 75px; border-radius: 30px 30px 0 0; font-size: 24px; letter-spacing: -2px; bottom: 0;color: #ffffff"
-    @click="onMoveWeddingInfo"
-  >
+  <q-btn class="footer_btn" style="" @click="onMoveWeddingInfo">
     <span>{{ btnText }}</span>
   </q-btn>
 </template>
@@ -19,22 +15,32 @@ function onMoveWeddingInfo() {
   console.log('예식정보 보기로 이동', route.path);
   let chgPath = '';
 
-  switch (route.path)
-  {
+  switch (route.path) {
     case '/':
       btnText.value = '갤러리 보기';
-      chgPath = '/wedding'
+      chgPath = '/wedding';
       break;
     case '/wedding':
       btnText.value = '예식정보 보기';
-      chgPath = '/'
+      chgPath = '/';
       break;
   }
-  router.push({path: chgPath});
+  router.push({ path: chgPath });
 }
-
 </script>
 
 <style scoped>
-
+.footer_btn {
+  position: fixed;
+  z-index: 10;
+  background-color: #c1957a;
+  width: 100vw;
+  height: 60px;
+  border-radius: 30px 30px 0 0;
+  font-size: 24px;
+  letter-spacing: -2px;
+  left: 0;
+  bottom: 0;
+  color: #ffffff;
+}
 </style>
