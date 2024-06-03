@@ -5,8 +5,9 @@
     style="height: 100svh; padding: 0; color: #72605c"
   >
     <div class="col-12 bg_img_wrapper">
-      <img
+      <q-img
         src="../assets/page4/page4_bg.jpg"
+        loading="lazy" spinner-color="white"
         style="width: 100%; height: 100%"
       />
     </div>
@@ -54,7 +55,10 @@
         자세한 예식 정보는 <span style="color: #dbc7c2">“예식정보 보기”</span> 클릭!
       </div>
       <div class="w-100" style="width: 32px; height: 22px">
-          <img src="../assets/page4/page4_arrow2.png" style="width: 100%; height: 100%"/>
+          <q-img
+            src="../assets/page4/page4_arrow2.png"
+            loading="lazy" spinner-color="white"
+            style="width: 100%; height: 100%"/>
       </div>
     </div>
 

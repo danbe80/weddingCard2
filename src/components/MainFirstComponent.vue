@@ -1,7 +1,10 @@
 <template>
   <q-card flat class="first-wrapper">
     <div class="slide_default_wrap">
-      <img src="../assets/page1/page1_panel.png" class="slide_panel_img" />
+      <q-img src="../assets/page1/page1_panel.png" loading="lazy" spinner-color="white" class="slide_panel_img">
+      </q-img>
+
+
     </div>
 
     <q-carousel
@@ -13,42 +16,15 @@
       transition-next="slide-left"
       style="width: 100%; height: 65lvh"
     >
-      <q-carousel-slide :name="1" style="padding: 0">
-        <div style="width: 100vw; height: 80lvh">
-          <img
-            src="../assets/page1/Page1_Photo1.png"
-            class="slide-img"
-          />
-        </div>
+      <q-carousel-slide :name="1" style="padding: 0; width: 100vw; height: 80lvh" img-src="../assets/page1/Page1_Photo1.png">
       </q-carousel-slide>
-      <q-carousel-slide :name="2" style="padding: 0">
-        <div style="width: 100vw; height: 75lvh">
-          <img
-            src="../assets/page1/Page1_Photo2.png"
-            class="slide-img"
-          />
-        </div>
+      <q-carousel-slide :name="2" style="padding: 0; width: 100vw; height: 75lvh" img-src="../assets/page1/Page1_Photo2.png">
       </q-carousel-slide>
-        <q-carousel-slide :name="3" style="padding: 0">
-        <div style="width: 100vw; height: 70lvh">
-          <img
-            src="../assets/page1/Page1_Photo3.png"
-            class="slide-img"
-          />
-        </div>
+      <q-carousel-slide :name="3" style="padding: 0; width: 100vw; height: 70lvh" img-src="../assets/page1/Page1_Photo3.png">
       </q-carousel-slide>
-      <q-carousel-slide :name="4" style="padding: 0">
-        <div style="width: 100vw; height: 80lvh">
-          <img
-            src="../assets/page1/Page1_Photo4.png"
-            class="slide-img"
-          />
-        </div>
+      <q-carousel-slide :name="4" style="padding: 0; width: 100vw; height: 80lvh" img-src="../assets/page1/Page1_Photo4.png">
       </q-carousel-slide>
-      <q-carousel-slide :name="5" style="padding: 0">
-        <div style="width: 90vw; height: 65lvh">
-          <img src="../assets/page1/Page1_Photo5.png" class="slide-img"/>
-        </div>
+      <q-carousel-slide :name="5" style="padding: 0;width: 90vw; height: 65lvh" img-src="../assets/page1/Page1_Photo5.png">
       </q-carousel-slide>
     </q-carousel>
 
@@ -62,7 +38,14 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
+import { onMounted } from 'vue';
 const slide = ref(1);
+
+onMounted(() => {
+  console.log('넓이 ::: ', window.outerWidth );
+  console.log('높이 ::: ', window.outerHeight );
+  document.documentElement.style.setProperty('--vh', window.innerHeight* 0.01 + 'px');
+})
 </script>
 
 <style scoped>

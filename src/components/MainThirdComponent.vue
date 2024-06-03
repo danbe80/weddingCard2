@@ -3,8 +3,9 @@
     <div
       class="third_slide-wrap"
     >
-      <img
+      <q-img
         src="../assets/page3/page3_bg.png"
+        loading="lazy" spinner-color="white"
         class="slide_panel"
       />
     </div>
@@ -19,8 +20,9 @@
     >
       <q-carousel-slide :name="1" style="padding: 0">
         <div style="width: 100vw; height: 75lvh">
-          <img
+          <q-img
             src="../assets/page3/Page3_Photo1.png"
+            loading="lazy" spinner-color="white"
             class="slide-img"
           />
         </div>
@@ -28,16 +30,18 @@
 
       <q-carousel-slide :name="2" style="padding: 0">
         <div style="width: 100vw; height: 75lvh">
-          <img
+          <q-img
             src="../assets/page3/Page3_Photo2.png"
+            loading="lazy" spinner-color="white"
             class="slide-img"
           />
         </div>
       </q-carousel-slide>
       <q-carousel-slide :name="3" style="padding: 0">
         <div style="width: 100vw; height: 75lvh">
-          <img
+          <q-img
             src="../assets/page3/Page3_Photo3.png"
+            loading="lazy" spinner-color="white"
             class="slide-img"
           />
         </div>

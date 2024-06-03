@@ -2,9 +2,6 @@
   <q-page
         class="slide_wrapper"
           >
-    <!-- 백그라운드 -->
-    <img src="../assets/background/page2_bg.png" class="bg-panel" />
-    <!--  백그라운드  -->
 
     <q-carousel
       v-model="slide"
@@ -51,7 +48,7 @@ const slide = ref(1);
   position: absolute;
   left: 0;
   width: 100%;
-  height: 100dvh;
+  height: 100svh;
   min-height: 100svh;
   z-index: 0;
 }

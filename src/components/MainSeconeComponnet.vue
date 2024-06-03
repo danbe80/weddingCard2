@@ -1,5 +1,5 @@
 <template>
-  <q-page-container class="sec_wrapper row justify-center items-center">
+  <q-page-container class="sec_wrapper">
     <q-card flat class="row items-center justify-center sec-wrap">
       <div style="text-align: right" class="col-5">
         <p class="q-mr-sm">
@@ -16,7 +16,7 @@
       </div>
     </q-card>
 
-    <q-card flat class="row items-center justify-center sec-wrap q-mt-md">
+    <q-card flat class="row items-center justify-center sec-wrap">
       <div class="col-7" style="height: 100%;">
         <img
           src="../assets/Photo_Bride.jpg"
@@ -34,20 +34,27 @@
   </q-page-container>
 
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  console.log('높이 ::: ', window.outerHeight );
+  document.documentElement.style.setProperty('--vh', window.innerHeight* 0.01 + 'px');
+})
+
+</script>
 
 <style scoped>
 .sec_wrapper {
   padding: 10px;
-  min-height: 85svh;
-  height: 85svh;
+  min-height: calc(884px - 65px);
+  height: calc(884px - 65px);
 
 }
 
 .sec-wrap {
   background-color: rgba(0, 0, 0, 0);
   width: 100%;
-  height: 50%;
-
 }
 </style>
