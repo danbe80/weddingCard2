@@ -1,7 +1,7 @@
 <template>
   <q-card flat class="first-wrapper">
     <div class="slide_default_wrap">
-      <img src="../assets/page1_panel.png" class="slide_panel_img" />
+      <img src="../assets/page1/page1_panel.png" class="slide_panel_img" />
     </div>
 
     <q-carousel
@@ -16,30 +16,38 @@
       <q-carousel-slide :name="1" style="padding: 0">
         <div style="width: 100vw; height: 80lvh">
           <img
-            src="../assets/Page1_Photo1.png"
+            src="../assets/page1/Page1_Photo1.png"
             class="slide-img"
           />
         </div>
       </q-carousel-slide>
       <q-carousel-slide :name="2" style="padding: 0">
-        <div style="width: 100vw; height: 80lvh">
+        <div style="width: 100vw; height: 75lvh">
           <img
-            src="../assets/Page1_Photo3.png"
+            src="../assets/page1/Page1_Photo2.png"
             class="slide-img"
           />
         </div>
       </q-carousel-slide>
-      <q-carousel-slide :name="3" style="padding: 0">
-        <div style="width: 100vw; height: 80lvh">
+        <q-carousel-slide :name="3" style="padding: 0">
+        <div style="width: 100vw; height: 70lvh">
           <img
-            src="../assets/Page1_Photo4.png"
+            src="../assets/page1/Page1_Photo3.png"
             class="slide-img"
           />
         </div>
       </q-carousel-slide>
       <q-carousel-slide :name="4" style="padding: 0">
+        <div style="width: 100vw; height: 80lvh">
+          <img
+            src="../assets/page1/Page1_Photo4.png"
+            class="slide-img"
+          />
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide :name="5" style="padding: 0">
         <div style="width: 90vw; height: 65lvh">
-          <img src="../assets/Page1_Photo5.png" class="slide-img"/>
+          <img src="../assets/page1/Page1_Photo5.png" class="slide-img"/>
         </div>
       </q-carousel-slide>
     </q-carousel>
