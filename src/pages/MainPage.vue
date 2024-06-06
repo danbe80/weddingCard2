@@ -34,7 +34,16 @@ import MainSeconeComponnet from 'components/MainSeconeComponnet.vue';
 import MainThirdComponent from 'components/MainThirdComponent.vue';
 import MainFourComponent from 'components/MainFourComponent.vue';
 
+/* 페이지 위치 타입 */
+/*enum pageType {
+  FIRST = 1,
+  SECOND = 2,
+  THIRD = 3,
+  FOUR = 4,
+}*/
 const slide = ref(1);
+
+
 </script>
 
 <style scoped>

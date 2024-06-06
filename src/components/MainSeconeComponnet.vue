@@ -1,10 +1,7 @@
 <template>
   <q-page-container class="sec_wrapper">
     <q-card flat class="sec-wrap man_wrap">
-      <div class="man_info_wrap info_wrap">
-        <p>코딩을 하는</p>
-        <p>컴퓨터공학 전공인, 그</p>
-        <span class="name_info">재환</span>
+      <div class="man_info_wrap info_wrap" v-html='lang == "kr" ? manText.kr : manText.en'>
       </div>
       <q-card class="img_wrap">
         <q-img
@@ -25,15 +22,33 @@
           style="border-radius: 15px 0 15px 30px"
         />
       </q-card>
-      <div class="woman_info_wrap info_wrap">
-        <p>게임그래픽을 하는</p>
-        <p>동양화 전공 인, 그녀</p>
-        <span class="name_info">지은</span>
+      <div class="woman_info_wrap info_wrap" v-html='lang == "kr" ? womanText.kr : womanText.en'>
       </div>
     </q-card>
   </q-page-container>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed } from 'vue';
+import { storeLang } from 'src/store/module/lang';
+
+const lang = computed(() => storeLang.lang);
+  const manText = {
+    kr : `<p style="margin: 0">코딩을 하는</p>
+          <p style="margin: 0">컴퓨터공학 전공인, 그</p>
+          <span style="font-size: 3.5dvh;font-weight: bold;">재환</span>`,
+    en: `<p style="margin: 0">a Software Devloper,</p>
+          <span style="font-size: 2.2dvh;font-weight: bold;">Jaehwan You</span>`,
+  }
+  const womanText = {
+    kr : `<p style="margin: 0">게임그래픽을  하는</p>
+          <p style="margin: 0">동양화 전공 인, 그녀</p>
+          <span style="font-size: 3.5dvh;font-weight: bold;">지은</span>`,
+    en: `<p style="margin: 0">Game Graphic Designer,</p>
+          <span style="font-size: 2.2dvh;font-weight: bold;">Jenny Park</span>`,
+  }
+
+
+</script>
 
 <style scoped>
 p {
@@ -118,7 +133,6 @@ p {
 }
 
 .name_info {
-  font-size: 3.5dvh;
-  font-weight: bold;
+
 }
 </style>

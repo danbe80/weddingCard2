@@ -1,10 +1,7 @@
 <template>
   <q-card
       flat class="row q-pa-lg"
-      style="height: 100%; background-size: cover; font-weight: bold "
-      :style="{
-                backgroundImage: `url(${bgImg})`,
-              }">
+      style="height: 100%; font-weight: bold; text-align: center">
 
 
     <div class="justify-center items-center flex col-12">
@@ -51,10 +48,6 @@
 </template>
 <script setup lang="ts">
 const aweekDate = ['일', '월', '화', '수', '목', '금', '토'];
-const bgImg = new URL(
-  '../../assets/background/page2_bg.png',
-  import.meta.url
-).href
 
 </script>
 

@@ -43,6 +43,7 @@
         <q-carousel-slide
           :name="5"
           class="carousel_wrap"
+          style="margin-bottom: 5000px"
           img-src="../assets/page1/Page1_Photo5.png"
         >
         </q-carousel-slide>
@@ -50,24 +51,32 @@
     </div>
 
     <q-card flat class="data_info_wrap">
-      <p class="date_info" style="">2024.07.13 토요일 12시</p>
-      <p class="location_info">인터컨티넨탈 파르나스 5층 그랜드볼룸</p>
+      <p class="date_info">{{ lang == 'kr' ? langText[0].kr : langText[0].en }}</p>
+      <p class="location_info" v-html="lang == 'kr' ? langText[1].kr : langText[1].en"></p>
     </q-card>
   </q-card>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
-import { onMounted } from 'vue';
+import { computed, ref, watch } from 'vue';
+import { storeLang } from 'src/store/module/lang';
 const slide = ref(1);
+const lang = computed(() => storeLang.lang);
 
-onMounted(() => {
-  console.log('넓이 ::: ', window.outerWidth);
-  console.log('높이 ::: ', window.outerHeight);
-  document.documentElement.style.setProperty(
-    '--vh',
-    window.innerHeight * 0.01 + 'px'
-  );
-});
+const langText = [
+  {
+    kr : '2024.07.13 토요일 12시',
+    en : 'Saturday, 13th July,  2024, 12PM'
+  },
+  {
+    kr : '인터컨티넨탈 파르나스 5층 그랜드볼룸',
+    en : 'Grand InterContinental Seoul Parnas <br /> 5 Floor, Grand Bloom'
+  },
+]
+
+watch(lang,(newValue) => {
+  console.log(newValue);
+})
+
 </script>
 
 <style scoped>
@@ -82,7 +91,7 @@ onMounted(() => {
 /* 슬라이드 배경 패널 wrap */
 .slide_panel_wrap {
   width: 100%;
-  height: 70dvh;
+  height: 75dvh;
   /* 태블릿 크기 */
   @media (min-width: 1026px) {
     height: 80dvh;
@@ -92,7 +101,7 @@ onMounted(() => {
 /* 슬라이드 배경 이미지 */
 .slide_panel_img {
   width: 100%;
-  height: 80dvh;
+  height: 75dvh;
   position: absolute;
   top: 0;
   right: 0;
@@ -101,7 +110,7 @@ onMounted(() => {
 /* 슬라이드 wrapper */
 .carousel_wrapper {
   width: 100%;
-  height: 80dvh;
+  height: 75dvh;
 }
 
 /* 슬라이드 */
@@ -113,7 +122,7 @@ onMounted(() => {
 
 .data_info_wrap {
   width: 100%;
-  height: 25dvh;
+  height: 15dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -122,6 +131,7 @@ onMounted(() => {
   z-index: 3;
   letter-spacing: -1px;
   padding: 0 5px;
+  background-color: rgba(0,0,0,0);
   /* 태블릿 크기 */
   @media (min-width: 1026px) {
     height: 15dvh;

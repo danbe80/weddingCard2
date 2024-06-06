@@ -16,6 +16,11 @@
 <script lang="ts" setup>
 import CommonComponent from 'components/CommonComponent.vue';
 import FooterComponent from 'components/FooterComponent.vue';
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  localStorage.setItem('lang', 'Kr');
+})
 
 </script>
 

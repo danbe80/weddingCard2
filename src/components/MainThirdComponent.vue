@@ -37,15 +37,32 @@
     </div>
 
     <q-card flat class="intro_wrap">
-      <p>서로가 마주 보며 다져온 사랑을</p>
-      <p>이제 함께 한곳을 바라보며 걸어갈 수 있는</p>
-      <p>큰 사랑으로 키우고자 합니다.</p>
-      <p>저희 두 사람의 앞날을 축복해주시면 감사하겠습니다.</p>
+      <p v-for="text in lang == 'kr' ? introText.kr : introText.en" :key="text">
+        {{ text }}
+      </p>
     </q-card>
   </q-card>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { storeLang } from 'src/store/module/lang';
+
+const lang = computed(() => storeLang.lang);
+
+const introText =
+  {
+    kr : [
+      '서로가 마주 보며 다져온 사랑을',
+      '이제 함께 한곳을 바라보며 걸어갈 수 있는',
+      '큰 사랑으로 키우고자 합니다.',
+      '저희 두 사람의 앞날을 축복해주시면 감사하겠습니다.'
+    ],
+    en: [
+      'We embark on this new journey together.',
+      'Let’s celebrate the beginning of our new life together',
+      'Celebrate with us as we commit to a lifetime of love and happiness.',
+    ]
+  }
 
 const slide = ref(1);
 </script>
@@ -109,7 +126,7 @@ p {
 .intro_wrap {
   position: relative;
   z-index: 3;
-  letter-spacing: -1.5px;
+  letter-spacing: -1px;
   font-size: 2.5dvh;
   font-weight: bold;
   text-align: left;

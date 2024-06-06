@@ -1,11 +1,10 @@
-import { store } from 'quasar/wrappers'
 import { InjectionKey } from 'vue'
 import { Router } from 'vue-router'
-import {
-  createStore,
-  Store as VuexStore,
+import Vuex, {
+  Store as VuexStore, StoreOptions,
   useStore as vuexUseStore,
 } from 'vuex'
+import createPersistedState from 'vuex-persistedstate';
 
 // import example from './module-example'
 // import { ExampleStateInterface } from './module-example/state';
@@ -44,19 +43,16 @@ declare module 'vuex' {
   }
 }
 
-export default store(function (/* { ssrContext } */) {
-  const Store = createStore<StateInterface>({
-    modules: {
-      // example
-    },
+const store: StoreOptions<StateInterface> = {
+  plugins: [
+    createPersistedState({
+      // paths: ['MetaInfo'],
 
-    // enable strict mode (adds overhead!)
-    // for dev mode and --debug builds only
-    strict: !!process.env.DEBUGGING
-  })
+    }),
+  ],
+};
 
-  return Store;
-})
+export default new Vuex.Store(store);
 
 export function useStore() {
   return vuexUseStore(storeKey)
