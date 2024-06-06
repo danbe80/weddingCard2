@@ -131,13 +131,13 @@ onMounted(() => {
 .date_info {
   width: 100%;
   border: 3px solid #dbc7c2;
-  font-size: 24px;
+  font-size: 3.5dvh;
   font-weight: bold;
   margin: 0;
   border-radius: 5px;
 }
 .location_info {
-  font-size: 18px;
+  font-size: 2.5dvh;
   margin-top: 1dvh;
 }
 </style>

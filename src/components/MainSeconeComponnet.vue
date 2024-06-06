@@ -50,6 +50,17 @@ p {
   align-items: center;
   border-radius: 0;
   padding: 0 2dvh 2dvh;
+  /* 패드 크기 */
+  @media (min-width: 710px) and (max-width: 990px) {
+    padding: 0 2dvh 5dvh;
+  }
+  /* 아이폰 크기 */
+  @media (min-width: 390px) and (max-width: 710px) {
+    padding: 0 2dvh 8dvh;
+  }
+  @media (min-width: 270px) and (max-width: 389px) {
+    padding: 0 2dvh 10dvh;
+  }
 }
 
 .sec-wrap {
@@ -57,6 +68,10 @@ p {
   height: 40dvh;
   display: flex;
   justify-content: center;
+  /* 아이폰 크기 */
+  @media (min-width: 390px) and (max-width: 710px) {
+    height: 42dvh;
+  }
 }
 
 .man_wrap {
@@ -69,6 +84,10 @@ p {
 .img_wrap {
   width: 60%;
   height: 100%;
+  /* 아이폰 크기 */
+  @media (min-width: 390px) and (max-width: 710px) {
+    width: 70%;
+  }
 }
 
 .main_info_img {
@@ -82,6 +101,12 @@ p {
   flex-direction: column;
   justify-content: center;
   margin: 0 2dvh;
+  font-size: 2dvh;
+  /* 아이폰 크기 */
+  @media (min-width: 390px) and (max-width: 710px) {
+    width: 35%;
+    font-size: 1.8dvh;
+  }
 }
 
 .man_info_wrap {
@@ -93,7 +118,7 @@ p {
 }
 
 .name_info {
-  font-size: 24px;
+  font-size: 3.5dvh;
   font-weight: bold;
 }
 </style>

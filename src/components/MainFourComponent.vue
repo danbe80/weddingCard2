@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <q-dialog v-model="icon" full-width>
+    <q-dialog v-model="icon" style="width: 100vw">
       <q-card
         class="dialog_wrap"
       >
