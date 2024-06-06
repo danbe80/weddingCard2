@@ -8,7 +8,7 @@
       </div>
       <q-card class="img_wrap">
         <q-img
-          src="../assets/Photo_Groom.jpg"
+          src="../assets/page2/Photo_Groom.jpg"
           fit="fill"
           class="main_info_img"
           style="border-radius: 30px 15px 15px 0"
@@ -19,7 +19,7 @@
     <q-card flat class="sec-wrap woman_wrap">
       <q-card flat class="img_wrap">
         <q-img
-          src="../assets/Photo_Bride.jpg"
+          src="../assets/page2/Photo_Bride.jpg"
           fit="fill"
           class="main_info_img"
           style="border-radius: 15px 0 15px 30px"

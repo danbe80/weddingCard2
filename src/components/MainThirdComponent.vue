@@ -1,71 +1,46 @@
 <template>
   <q-card flat class="third_wrapper">
-    <div
-      class="third_slide-wrap"
-    >
+    <div class="third_slide-wrap">
       <q-img
-        src="../assets/page3/page3_bg.png"
-        loading="lazy" spinner-color="white"
+        src="../assets/page3/page3_bg_new.png"
+        loading="lazy"
+        spinner-color="white"
+        fit="fill"
         class="slide_panel"
       />
-    </div>
-    <q-carousel
-      v-model="slide"
-      animated
-      infinite
-      :autoplay="4000"
-      transition-prev="slide-right"
-      transition-next="slide-left"
-      style="width: 100%; height: 64lvh"
-    >
-      <q-carousel-slide :name="1" style="padding: 0">
-        <div style="width: 100vw; height: 75lvh">
-          <q-img
-            src="../assets/page3/Page3_Photo1.png"
-            loading="lazy" spinner-color="white"
-            class="slide-img"
-          />
-        </div>
-      </q-carousel-slide>
 
-      <q-carousel-slide :name="2" style="padding: 0">
-        <div style="width: 100vw; height: 75lvh">
-          <q-img
-            src="../assets/page3/Page3_Photo2.png"
-            loading="lazy" spinner-color="white"
-            class="slide-img"
-          />
-        </div>
-      </q-carousel-slide>
-      <q-carousel-slide :name="3" style="padding: 0">
-        <div style="width: 100vw; height: 75lvh">
-          <q-img
-            src="../assets/page3/Page3_Photo3.png"
-            loading="lazy" spinner-color="white"
-            class="slide-img"
-          />
-        </div>
-      </q-carousel-slide>
-    </q-carousel>
-
-    <q-card
-      flat
-      style="
-        position: relative;
-        z-index: 3;
-        background-color: rgba(0, 0, 0, 0);
-        letter-spacing: -1px;
-      "
-    >
-      <p
-        class="text-left row justify-center"
-        style="font-size: 4.2vw; letter-spacing: -1px; font-weight: bold; margin: 0"
+      <q-carousel
+        v-model="slide"
+        animated
+        infinite
+        :autoplay="4000"
+        transition-prev="slide-right"
+        transition-next="slide-left"
+        class="carousel_wrapper"
       >
-        서로가 마주 보며 다져온 사랑을<br />
-        이제 함께 한곳을 바라보며 걸어갈 수 있는<br />
-        큰 사랑으로 키우고자 합니다.<br />
-        저희 두 사람의 앞날을 축복해주시면 감사하겠습니다.
-      </p>
+        <q-carousel-slide
+          :name="1"
+          class="carousel_wrap"
+          img-src="../assets/page3/Page3_Photo1.png"
+        />
+        <q-carousel-slide
+          :name="2"
+          class="carousel_wrap"
+          img-src="../assets/page3/Page3_Photo2.png"
+        />
+        <q-carousel-slide
+          :name="3"
+          class="carousel_wrap"
+          img-src="../assets/page3/Page3_Photo3.png"
+        />
+      </q-carousel>
+    </div>
+
+    <q-card flat class="intro_wrap">
+      <p>서로가 마주 보며 다져온 사랑을</p>
+      <p>이제 함께 한곳을 바라보며 걸어갈 수 있는</p>
+      <p>큰 사랑으로 키우고자 합니다.</p>
+      <p>저희 두 사람의 앞날을 축복해주시면 감사하겠습니다.</p>
     </q-card>
   </q-card>
 </template>
@@ -75,29 +50,73 @@ import { ref } from 'vue';
 const slide = ref(1);
 </script>
 <style scoped>
+p {
+  margin: 0;
+  line-height: 3.5dvh;
+  /* 태블릿 크기 */
+  @media (min-width: 1026px) {
+    line-height: 3dvh;
+  }
+}
 .third_wrapper {
-  width: 100vw;
-  height: 100svh;
+  width: 100%;
+  min-height: 100dvh;
+  height: 100dvh;
   border-radius: 0;
-  border: none;
-  background-color: rgba(0, 0, 0, 0);
 }
 
 .third_slide-wrap {
-  height: 90svh;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  overflow: hidden;
+  width: 100%;
+  height: 72dvh;
+  padding-top: 2dvh;
+  /* 태블릿 크기 */
+  @media (min-width: 1026px) {
+    height: 80dvh;
+    padding-top: 0;
+  }
 }
 .slide_panel {
-  height: 90lvh;
   width: 100%;
+  height: 70dvh;
+  position: absolute;
+  top: 2dvh;
+  right: 0;
+  z-index: 2;
+  /* 태블릿 크기 */
+  @media (min-width: 1026px) {
+    height: 80dvh;
+    top: 0;
+  }
 }
-.slide-img {
+
+.carousel_wrapper {
+  width: 100%;
+  height: 75dvh;
+  /* 태블릿 크기 */
+  @media (min-width: 1026px) {
+    padding-top: 2dvh;
+    height: 80dvh;
+  }
+}
+
+/* 슬라이드 */
+.carousel_wrap {
   width: 100%;
   height: 100%;
+  padding: 0;
+}
+
+.intro_wrap {
+  position: relative;
+  z-index: 3;
+  letter-spacing: -1.5px;
+  font-size: 2.5dvh;
+  font-weight: bold;
+  text-align: left;
+  padding: 2dvh 2dvh;
+  /* 태블릿 크기 */
+  @media (min-width: 1026px) {
+    padding-top: 1dvh;
+  }
 }
 </style>
