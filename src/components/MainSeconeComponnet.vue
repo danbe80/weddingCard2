@@ -1,60 +1,99 @@
 <template>
   <q-page-container class="sec_wrapper">
-    <q-card flat class="row items-center justify-center sec-wrap">
-      <div style="text-align: right" class="col-5">
-        <p class="q-mr-sm">
-          코딩을 하는 <br />
-          컴퓨터공학 전공인, 그 <br />
-          <span style="font-size: 24px; font-weight: bold">재환</span>
-        </p>
+    <q-card flat class="sec-wrap man_wrap">
+      <div class="man_info_wrap info_wrap">
+        <p>코딩을 하는</p>
+        <p>컴퓨터공학 전공인, 그</p>
+        <span class="name_info">재환</span>
       </div>
-      <div class="col-7" style="height: 100%;">
-        <img
+      <q-card class="img_wrap">
+        <q-img
           src="../assets/Photo_Groom.jpg"
-          style="border-radius: 30px 15px 15px 0; width: 100%; height: 100%"
+          fit="fill"
+          class="main_info_img"
+          style="border-radius: 30px 15px 15px 0"
         />
-      </div>
+      </q-card>
     </q-card>
 
-    <q-card flat class="row items-center justify-center sec-wrap">
-      <div class="col-7" style="height: 100%;">
-        <img
+    <q-card flat class="sec-wrap woman_wrap">
+      <q-card flat class="img_wrap">
+        <q-img
           src="../assets/Photo_Bride.jpg"
-          style="border-radius: 15px 0 15px 30px; width: 100%; height: 100%"
+          fit="fill"
+          class="main_info_img"
+          style="border-radius: 15px 0 15px 30px"
         />
-      </div>
-      <div style="text-align: left" class="col-5">
-        <p class="q-ml-sm">
-          게임그래픽을 하는<br />
-          동양화 전공 인, 그녀 <br />
-          <span style="font-size: 24px; font-weight: bold">지은</span>
-        </p>
+      </q-card>
+      <div class="woman_info_wrap info_wrap">
+        <p>게임그래픽을 하는</p>
+        <p>동양화 전공 인, 그녀</p>
+        <span class="name_info">지은</span>
       </div>
     </q-card>
   </q-page-container>
-
 </template>
-<script setup lang="ts">
-
-import { onMounted } from 'vue';
-
-onMounted(() => {
-  console.log('높이 ::: ', window.outerHeight );
-  document.documentElement.style.setProperty('--vh', window.innerHeight* 0.01 + 'px');
-})
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
-.sec_wrapper {
-  padding: 10px;
-  min-height: calc(884px - 65px);
-  height: calc(884px - 65px);
+p {
+  margin: 0;
+}
 
+.sec_wrapper {
+  width: 100%;
+  min-height: 100dvh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+  padding: 0 2dvh 2dvh;
 }
 
 .sec-wrap {
-  background-color: rgba(0, 0, 0, 0);
   width: 100%;
+  height: 40dvh;
+  display: flex;
+  justify-content: center;
+}
+
+.man_wrap {
+  //margin-bottom: 5dvh;
+}
+.woman_wrap {
+  margin-top: 2dvh;
+}
+
+.img_wrap {
+  width: 60%;
+  height: 100%;
+}
+
+.main_info_img {
+  width: 100%;
+  height: 100%;
+}
+
+.info_wrap {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 2dvh;
+}
+
+.man_info_wrap {
+  text-align: right;
+}
+
+.woman_info_wrap {
+  text-align: left;
+}
+
+.name_info {
+  font-size: 24px;
+  font-weight: bold;
 }
 </style>

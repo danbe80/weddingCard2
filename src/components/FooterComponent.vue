@@ -34,13 +34,18 @@ function onMoveWeddingInfo() {
   position: fixed;
   z-index: 10;
   background-color: #c1957a;
-  width: 100vw;
-  height: 60px;
+  width: 100%;
+  height: 5dvh;
   border-radius: 30px 30px 0 0;
   font-size: 24px;
   letter-spacing: -2px;
   left: 0;
+  right: 0;
+  margin: 0 auto;
   bottom: 0;
   color: #ffffff;
+  @media (min-width: 1026px) {
+    width: 991px;
+  }
 }
 </style>

@@ -1,8 +1,19 @@
-
 <template>
-  <q-card flat class="head-wrapper column justify-between " style="position: fixed; z-index: 10; width: 100%; height: 50px; background-color: rgba(0,0,0,0)">
-
-    <q-btn label="kr" style=" color: #72605c; right: 0; width: 80px; height: 15px; background-color: #cfc6bc; margin-right: 10px; margin-top: 10px; margin-left: auto;" flat>
+  <q-card flat class="head-wrapper column justify-between" style="">
+    <q-btn
+      label="kr"
+      style="
+        color: #72605c;
+        right: 0;
+        width: 80px;
+        height: 15px;
+        background-color: #cfc6bc;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-left: auto;
+      "
+      flat
+    >
       <q-menu>
         <q-list style="min-width: 100px">
           <q-item clickable>
@@ -23,11 +34,20 @@
   </q-card>
 </template>
 
-
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
+.head-wrapper {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0);
+  margin: 0 auto;
+  @media (min-width: 1026px) {
+    width: 991px;
+    margin: 0 auto;
+  }
 
+}
 </style>

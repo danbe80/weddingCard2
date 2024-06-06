@@ -1,5 +1,5 @@
 <template>
-  <q-layout>
+  <q-layout class="all_wrapper">
     <!--  공통  -->
     <CommonComponent />
 
@@ -20,10 +20,27 @@ import FooterComponent from 'components/FooterComponent.vue';
 </script>
 
 <style scoped>
+
+/* 전체 적용 css */
+.all_wrapper {
+  width: 100%;
+  height: 100dvh;
+  @media (min-width: 1026px) {
+    width: 991px;
+    margin: 0 auto;
+  }
+}
+/* 메인 화면 */
 .main-wrapper {
-  min-height: 100svh;
-  height: 100svh;
+  width: 100%;
+  min-height: 100dvh;
+  height: 100dvh;
   padding: 0;
+  @media (min-width: 1026px) {
+    width: 991px;
+    margin: 0 auto;
+  }
+
 }
 
 </style>
