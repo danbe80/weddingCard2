@@ -7,8 +7,9 @@
         <q-btn
           flat
           :ripple="false"
-          class="row items-center text-center justify-center"
-          style="color: #b19791"
+          class="row items-center text-center justify-center copy_wrapper"
+          :class="{'eng-copy' : lang == 'en' }"
+          style="color: #b19791; padding: 0"
           @click="copyAddress"
         >
           <div class="copy_wrap">
@@ -259,6 +260,7 @@ p {
   border: 1.5px solid #bd988d;
 }
 .address_text {
+  width: 70%;
   font-size: 2.5dvh;
   /* 패드 크기 */
   @media (min-width: 710px) and (max-width: 990px) {
@@ -267,9 +269,34 @@ p {
   /* 아이폰 크기 */
   @media (min-width: 390px) and (max-width: 710px) {
     font-size: 2.8dvh;
+    width: 95%;
+    margin-left: 15px;
   }
   @media (min-width: 270px) and (max-width: 389px) {
     font-size: 2.8dvh;
+    width: 95%;
+    margin-left: 10px;
+  }
+}
+.copy_wrapper {
+  width: 20%;
+  padding: 0;
+
+  /* 아이폰 크기 */
+  @media (min-width: 390px) and (max-width: 710px) {
+    width: 35%;
+  }
+  @media (min-width: 270px) and (max-width: 389px) {
+    width: 35%;
+  }
+}
+.copy_wrapper.eng-copy {
+  /* 아이폰 크기 */
+  @media (min-width: 390px) and (max-width: 710px) {
+    width: 25%;
+  }
+  @media (min-width: 270px) and (max-width: 389px) {
+    width: 25%;
   }
 }
 .copy_wrap {
@@ -282,9 +309,11 @@ p {
   /* 아이폰 크기 */
   @media (min-width: 390px) and (max-width: 710px) {
     font-size: 2dvh;
+    margin-right: 10px;
   }
   @media (min-width: 270px) and (max-width: 389px) {
     font-size: 2dvh;
+    margin-right: 10px;
   }
 }
 .map_wrapper {
