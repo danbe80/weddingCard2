@@ -8,6 +8,7 @@
           src="../assets/page2/Photo_Groom.jpg"
           fit="fill"
           class="main_info_img"
+          @contextmenu="$event.preventDefault()"
           style="border-radius: 30px 15px 15px 0"
         />
       </q-card>
@@ -20,6 +21,7 @@
           fit="fill"
           class="main_info_img"
           style="border-radius: 15px 0 15px 30px"
+          @contextmenu="$event.preventDefault()"
         />
       </q-card>
       <div class="woman_info_wrap info_wrap" v-html='lang == "kr" ? womanText.kr : womanText.en'>
@@ -108,6 +110,7 @@ p {
 .main_info_img {
   width: 100%;
   height: 100%;
+  -webkit-touch-callout:none;
 }
 
 .info_wrap {

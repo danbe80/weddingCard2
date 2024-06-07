@@ -5,6 +5,7 @@
         src="../assets/page1/bg/page1_panel_new.png"
         loading="lazy"
         spinner-color="white"
+        @contextmenu="$event.preventDefault()"
         fit="fill"
         class="slide_panel_img"
       />
@@ -20,6 +21,7 @@
         <q-carousel-slide
           :name="1"
           class="carousel_wrap"
+          :oncontextmenu="false"
           img-src="../assets/page1/Page1_Photo1.png"
         />
         <q-carousel-slide
@@ -51,8 +53,13 @@
     </div>
 
     <q-card flat class="data_info_wrap">
-      <p class="date_info">{{ lang == 'kr' ? langText[0].kr : langText[0].en }}</p>
-      <p class="location_info" v-html="lang == 'kr' ? langText[1].kr : langText[1].en"></p>
+      <p class="date_info">
+        {{ lang == 'kr' ? langText[0].kr : langText[0].en }}
+      </p>
+      <p
+        class="location_info"
+        v-html="lang == 'kr' ? langText[1].kr : langText[1].en"
+      ></p>
     </q-card>
   </q-card>
 </template>
@@ -64,18 +71,18 @@ const lang = computed(() => storeLang.lang);
 
 const langText = [
   {
-    kr : '2024.07.13 토요일 12시',
-    en : 'Saturday, 13th July,  2024, 12PM'
+    kr: '2024.07.13 토요일 12시',
+    en: 'Saturday, 13th July,  2024, 12PM',
   },
   {
-    kr : '인터컨티넨탈 파르나스 5층 그랜드볼룸',
-    en : 'Grand InterContinental Seoul Parnas <br /> 5 Floor, Grand Bloom'
+    kr: '인터컨티넨탈 파르나스 5층 그랜드볼룸',
+    en: 'Grand InterContinental Seoul Parnas <br /> 5 Floor, Grand Bloom',
   },
-]
+];
 
-watch(lang,(newValue) => {
+watch(lang, (newValue) => {
   console.log(newValue);
-})
+});
 
 </script>
 
@@ -106,6 +113,7 @@ watch(lang,(newValue) => {
   top: 0;
   right: 0;
   z-index: 2;
+  -webkit-touch-callout:none;
 }
 /* 슬라이드 wrapper */
 .carousel_wrapper {
@@ -131,7 +139,7 @@ watch(lang,(newValue) => {
   z-index: 3;
   letter-spacing: -1px;
   padding: 0 5px;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   /* 태블릿 크기 */
   @media (min-width: 1026px) {
     height: 15dvh;

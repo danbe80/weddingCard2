@@ -38,7 +38,11 @@
           v-for="(btn, idx) in mapList"
           :key="btn.mapIcon"
         >
-          <q-img :src="btn.mapIcon" class="map_img" fit="fill"></q-img>
+          <q-img
+            :src="btn.mapIcon"
+            @contextmenu="$event.preventDefault()"
+            class="map_img"
+            fit="fill"></q-img>
           <span class="quick_btn">{{ lang != 'kr' ? quickText.en[idx] : quickText.kr }}</span>
         </q-btn>
       </div>
@@ -49,8 +53,9 @@
           style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0)"
         >
           <img
+            @contextmenu="$event.preventDefault()"
             src="../../assets/mapIcon/page6_map_slot.png"
-            style="width: 100%; height: 100%"
+            style="width: 100%; height: 100%; -webkit-touch-callout:none;"
           />
         </q-card>
       </div>
@@ -72,6 +77,8 @@
             <div style="width: 25%;">
               <q-img
                 fit="fill"
+                @contextmenu="$event.preventDefault()"
+                style="-webkit-touch-callout:none;"
                 src="../../assets/mapIcon/car_icon.png"
               />
             </div>
@@ -89,6 +96,8 @@
             <div style="width: 18%;">
               <q-img
                 fit="fill"
+                @contextmenu="$event.preventDefault()"
+                style="-webkit-touch-callout:none;"
                 src="../../assets/mapIcon/subway_icon.png"
               />
             </div>
@@ -318,6 +327,7 @@ p {
 .map_img {
   width: 60%;
   height: 50%;
+  -webkit-touch-callout:none;
   /* 태블릿 크기 */
   @media (min-width: 768px) {
     width: 70%;

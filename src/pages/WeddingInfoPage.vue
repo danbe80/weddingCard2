@@ -3,7 +3,10 @@
     <!--  백그라운드  -->
 
     <div class="bg_img_wrapper">
-      <q-img src="../assets/page4/page4_bg.jpg" />
+      <q-img
+        src="../assets/page4/page4_bg.jpg"
+        @contextmenu="$event.preventDefault()"
+        style="-webkit-touch-callout:none;"/>
     </div>
 
     <div class="img_list_wrapper">

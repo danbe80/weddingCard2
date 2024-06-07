@@ -7,6 +7,7 @@
         spinner-color="white"
         fit="fill"
         class="ba_img"
+        @contextmenu="$event.preventDefault()"
       />
     </div>
 
@@ -34,7 +35,9 @@
           src="../assets/page4/page4_arrow2.png"
           loading="lazy"
           spinner-color="white"
+          @contextmenu="$event.preventDefault()"
           fit="fill"
+          style="-webkit-touch-callout:none;"
         />
       </div>
     </div>
@@ -57,8 +60,9 @@
             v-for="(img, idx) in allUrlObjList"
             :key="img.weddingPhoto"
             :name="idx + 1"
-            style="padding: 0; border-radius: 15px"
+            style="padding: 0; border-radius: 15px; -webkit-touch-callout:none;"
             :img-src="`${img.weddingPhoto}`"
+            @contextmenu="$event.preventDefault()"
           />
         </q-carousel>
       </q-card>
@@ -174,6 +178,7 @@ const cautionText = {
 .ba_img {
   width: 100%;
   height: 100%;
+  -webkit-touch-callout:none;
 }
 
 .img_list_wrapper {
@@ -212,6 +217,7 @@ const cautionText = {
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
+  -webkit-touch-callout:none;
 }
 
 .bg_text {

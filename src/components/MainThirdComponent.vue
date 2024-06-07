@@ -7,6 +7,7 @@
         spinner-color="white"
         fit="fill"
         class="slide_panel"
+        @contextmenu="$event.preventDefault()"
       />
 
       <q-carousel
@@ -99,6 +100,7 @@ p {
   top: 2dvh;
   right: 0;
   z-index: 2;
+  -webkit-touch-callout:none;
   /* 태블릿 크기 */
   @media (min-width: 1026px) {
     height: 80dvh;
