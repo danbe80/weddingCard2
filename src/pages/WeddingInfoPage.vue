@@ -19,14 +19,14 @@
           outline
           class="tab_wrap"
         >
-          <q-tab name="First" class="tab_items" :ripple="false">
-            <span class="tab_title">모시는 글</span>
+          <q-tab name="First" class="tab_items" :ripple="false" style="padding: 0">
+            <span class="tab_title">{{ lang != "kr" ? tabListText[0].en : tabListText[0].kr }}</span>
           </q-tab>
-          <q-tab name="Second" class="tab_items" :ripple="false">
-            <span class="tab_title">오시는 길</span>
+          <q-tab name="Second" class="tab_items" :ripple="false" style="padding: 0">
+            <span class="tab_title">{{ lang != "kr" ? tabListText[1].en : tabListText[1].kr }}</span>
           </q-tab>
-          <q-tab name="Third" class="tab_items" :ripple="false">
-            <span class="tab_title">웨딩일정</span>
+          <q-tab name="Third" class="tab_items" :ripple="false"  style="padding: 0">
+            <span class="tab_title">{{ lang != "kr" ? tabListText[2].en : tabListText[2].kr }}</span>
           </q-tab>
         </q-tabs>
       </div>
@@ -54,19 +54,44 @@
         </q-tab-panels>
       </div>
 
-      <div class="data_info_wrap" style="">
-        <span>2024년 7월 13일 토요일 오후 12시</span>
+      <div class="data_info_wrap">
+        <span>{{ lang != "kr" ? dateText.en : dateText.kr }}</span>
       </div>
     </div>
   </q-page>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import CalendarComponent from 'components/weddingInfo/CalendarComponent.vue';
 import ComeHowComponent from 'components/weddingInfo/ComeHowComponent.vue';
 import NoticeComponent from 'components/weddingInfo/NoticeComponent.vue';
+import { storeLang } from 'src/store/module/lang';
 
 const panel = ref('First');
+
+const lang = computed(() => storeLang.lang);
+
+const dateText = {
+  kr : '2024년 7월 13일 토요일 오후 12시',
+  en : 'Saturday, 13th July, 12PM'
+}
+
+const tabListText = [
+  {
+    kr : '모시는 글',
+    en : 'Thanks to',
+  },
+  {
+    kr : '오시는 길',
+    en : 'How to Come',
+  },
+  {
+    kr : '웨딩일정',
+    en : 'Wedding Date',
+  },
+
+]
+
 </script>
 <style scoped>
 .wedding_info_wrapper {
@@ -114,6 +139,7 @@ const panel = ref('First');
   box-sizing: border-box;
 }
 .tab_wrap {
+  letter-spacing: -1px;
 }
 .tab_items {
   width: 33.333%;
@@ -134,6 +160,9 @@ const panel = ref('First');
   width: 100%;
   padding: 1dvh 2.5dvh;
 }
+
+
+
 .slide_wrap {
   background-color: rgba(0, 0, 0, 0);
   height: 58dvh;

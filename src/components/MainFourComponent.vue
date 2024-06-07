@@ -26,9 +26,8 @@
     </div>
 
         <div class="wedding_info_wrapper">
-      <div class="wedding_info_text">
-        자세한 예식 정보는
-        <span style="color: #dbc7c2">“예식정보 보기”</span> 클릭!
+      <div class="wedding_info_text" v-html="lang != 'kr' ? cautionText.en : cautionText.kr">
+
       </div>
       <div style="width: 3dvh;">
         <q-img
@@ -67,10 +66,11 @@
   </q-card>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import { storeLang } from 'src/store/module/lang';
 
 const slide = ref(1);
-
+const lang = computed(() => storeLang.lang);
 const allUrlObjList = [
   {
     weddingIcon: new URL('../assets/page4/Page4_Photo_icon_1.png', import.meta.url).href,
@@ -134,6 +134,13 @@ const icon = ref(false);
 function onClickImg(idx: number) {
   icon.value = true;
   slide.value = idx + 1;
+}
+
+const cautionText = {
+  kr: '자세한 예식 정보는 <span style="color: #dbc7c2">“예식정보 보기”</span> 클릭!',
+  en: 'Want to see the <span style="color: #dbc7c2">detail of wedding</span> button Click please.',
+
+
 }
 </script>
 <style scoped>

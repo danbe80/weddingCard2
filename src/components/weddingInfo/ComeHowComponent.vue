@@ -1,9 +1,9 @@
 <template>
   <q-card flat class="come_wrapper">
     <div class="address_wrapper">
-      <p class="q-mb-none">인터컨티넨탈 파르나스 “5층 그랜드볼룸”</p>
+      <p class="q-mb-none">{{ lang != 'kr' ? addressText[0].en : addressText[0].kr }}</p>
       <div class="address_wrap">
-        <p class="address_text">서울 강남구 테헤란로 521</p>
+        <p class="address_text">{{ lang != 'kr' ? addressText[1].en : addressText[1].kr }}</p>
         <q-btn
           flat
           :ripple="false"
@@ -23,7 +23,7 @@
               />
             </svg>
           </div>
-          <span class="copy_text">주소 복사</span>
+          <span class="copy_text">{{ lang != 'kr' ? copyText.en : copyText.kr }}</span>
         </q-btn>
       </div>
     </div>
@@ -39,7 +39,7 @@
           :key="btn.mapIcon"
         >
           <q-img :src="btn.mapIcon" class="map_img" fit="fill"></q-img>
-          <span class="quick_btn">바로가기</span>
+          <span class="quick_btn">{{ lang != 'kr' ? quickText.en[idx] : quickText.kr }}</span>
         </q-btn>
       </div>
 
@@ -57,9 +57,9 @@
 
       <div class="caution_wrapper">
         <p style="line-height: 2dvh; letter-spacing: -1px">
-          인터컨티넨탈 서울 코엑스 아닙니다. 주의 부탁드립니다.
+          {{ lang != 'kr' ? warningText.en : warningText.kr }}
         </p>
-        <q-btn class="how_btn" @click="openNotice">교통편 안내</q-btn>
+        <q-btn class="how_btn" @click="openNotice"> {{ lang != 'kr' ? howBtn.en : howBtn.kr }}</q-btn>
       </div>
     </div>
 
@@ -75,15 +75,12 @@
                 src="../../assets/mapIcon/car_icon.png"
               />
             </div>
-            <span style="margin-left: 1dvh">주자 안내</span>
+            <span style="margin-left: 1dvh">{{ lang != 'kr' ? dailogText[0].en : dailogText[0].kr }}</span>
           </div>
         </div>
 
-        <div class="com_how_info_wrap" style="padding-top: 0">
-          <p>
-            그랜드 인터컨티넨탈 호텔 파르나스 주차장 <br />
-            4시간 무료 제공
-          </p>
+        <div class="com_how_info_wrap" style="padding-top: 0; margin-bottom: 1dvh">
+          <p v-html="lang != 'kr' ? dailogText[1].en : dailogText[1].kr"></p>
         </div>
 
         <div class="com_how_info_wrap">
@@ -95,28 +92,81 @@
                 src="../../assets/mapIcon/subway_icon.png"
               />
             </div>
-            <span style="margin-left: 1dvh">지하철 안내</span>
+            <span style="margin-left: 1dvh">{{ lang != 'kr' ? dailogText[2].en : dailogText[2].kr }}</span>
           </div>
         </div>
 
         <div class="com_how_info_wrap" style="padding-top: 0">
-          <p>
-            <span style="color: #6ea545">2호선</span> 삼성역 5번, 6번 출구
-            앞에서 도보 1분 <br />
-            <span style="color: #b08256">9호선</span> 봉은사역 6번출구 앞에서
-            도보 12분
-          </p>
+          <p v-html="lang != 'kr' ? dailogText[3].en : dailogText[3].kr"></p>
+          <p v-html="lang != 'kr' ? dailogText[4].en : dailogText[4].kr"></p>
         </div>
       </q-card>
     </q-dialog>
   </q-card>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useQuasar } from 'quasar';
+import { storeLang } from 'src/store/module/lang';
 
 const transportNotice = ref(false);
 const $q = useQuasar();
+const lang = computed(() => storeLang.lang);
+const addressText = [
+  {
+    kr: '인터컨티넨탈 파르나스 “5층 그랜드볼룸”',
+    en: 'Parnas, IHG hotel,  5 Floor'
+  },
+  {
+    kr: '서울 강남구 테헤란로 521',
+    en: '521, Teheran-ro,Gangnam-gu,Seoul',
+  }
+]
+
+const copyText = {
+  kr: '주소 복사',
+  en: 'copy'
+}
+const quickText = {
+  kr: '바로가기',
+  en: [
+    'Google',
+    'Kakao',
+    'Naver',
+  ]
+}
+const warningText = {
+  kr: '인터컨티넨탈 서울 코엑스 아닙니다. 주의 부탁드립니다.',
+  en: 'Upper buttons are Map Link to the Wedding'
+}
+
+const howBtn = {
+  kr: '교통편 안내',
+  en: 'Transportation Guide',
+}
+
+const dailogText = [
+  {
+    kr: '주차 안내',
+    en: 'Parking',
+  },
+  {
+    kr: '그랜드 인터컨티넨탈 호텔 파르나스 주차장 <br />' + '4시간 무료 제공',
+    en: 'Grand InterContinental Seoul Parnas Parking Lot  <br />' + '4 Hours Free',
+  },
+  {
+    kr: '지하철 안내',
+    en: 'Subway',
+  },
+  {
+    kr: '<span style="color: #6ea545">2호선</span> 삼성역 5번, 6번 출구 앞에서 도보 1분',
+    en: '<span style="color: #6ea545">Line 2</span> Samseong Station, 1 minute walk from Exits 5 and 6.',
+  },
+  {
+    kr: '<span style="color: #b08256">9호선</span> 봉은사역 6번출구 앞에서 도보 12분',
+    en: '<span style="color: #b08256">Line 9</span> Bongeunsa Station, 12-minute walk from Exit 6.',
+  },
+]
 
 const mapList = [
   {
@@ -331,7 +381,7 @@ p {
   letter-spacing: -1px;
   display: flex;
   flex-direction: column;
-  padding: 2.5dvh 0 0 2.5dvh;
+  padding: 3dvh;
 
 }
 .title_wrapper {
