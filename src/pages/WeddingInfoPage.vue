@@ -10,7 +10,6 @@
     </div>
 
     <div class="img_list_wrapper">
-      <!--      <div class="tab_wrapper">-->
       <div class="tab_wrapper">
         <q-tabs
           v-model="panel"
@@ -33,7 +32,6 @@
           </q-tab>
         </q-tabs>
       </div>
-      <!--      </div>-->
 
       <div class="slide_wrap">
         <q-tab-panels

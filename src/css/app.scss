@@ -1,1 +1,30 @@
 // app global css in SCSS form
+
+@font-face {
+  font-family: 'gangone-bold';
+  src: url("public/fonts/gangone_bold.ttf");
+}
+
+@font-face {
+  font-family: 'gangone-light';
+  src: url("public/fonts/gangone_light.ttf");
+}
+
+@font-face {
+  font-family: 'nanum-gothic';
+  src: url("public/fonts/NanumBarunGothic.ttf");
+}
+
+@font-face {
+  font-family: 'nanum-gothic-bold';
+  src: url("public/fonts/NanumBarunGothicBold.ttf");
+}
+
+@font-face {
+  font-family: 'nanum-gothic-light';
+  src: url("public/fonts/NanumBarunGothicLight.ttf");
+}
+
+body, html {
+  font-family: 'gangone-bold', 'nanum-gothic', sans-serif;
+}
