@@ -19,7 +19,7 @@ import FooterComponent from 'components/FooterComponent.vue';
 import { onMounted } from 'vue';
 
 onMounted(() => {
-  localStorage.setItem('lang', 'Kr');
+  localStorage.setItem('lang', 'kr');
 })
 
 </script>
