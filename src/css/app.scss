@@ -1,30 +1,56 @@
 // app global css in SCSS form
 
+
 @font-face {
-  font-family: 'gangone-bold';
-  src: url("public/fonts/gangone_bold.ttf");
+  font-family: 'GangwonEdu';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'gangone-light';
-  src: url("public/fonts/gangone_light.ttf");
+  font-family: 'NanumBarunGothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+  src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
+//@font-face {
+//  font-family: 'NanumBarunGothic-bold';
+//  font-style: normal;
+//  font-weight: 700;
+//  src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
+//  src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')
+//}
+
+@font-face {
+  font-family: 'NanumBarunGothic-light';
+  font-style: normal;
+  font-weight: 300;
+  src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
+  src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
+}
+
+.nanumbarungothic * {
+  font-family: 'NanumBarunGothic', sans-serif;
 }
 
 @font-face {
   font-family: 'nanum-gothic';
-  src: url("public/fonts/NanumBarunGothic.ttf");
+  src: url("../../public/fonts/NanumBarunGothic.ttf");
 }
 
 @font-face {
   font-family: 'nanum-gothic-bold';
-  src: url("public/fonts/NanumBarunGothicBold.ttf");
+  src: url("../../public/fonts/NanumBarunGothicBold.ttf");
 }
 
 @font-face {
   font-family: 'nanum-gothic-light';
-  src: url("public/fonts/NanumBarunGothicLight.ttf");
+  src: url("../../public/fonts/NanumBarunGothicLight.ttf");
 }
 
 body, html {
-  font-family: 'gangone-bold', 'nanum-gothic', sans-serif;
+  font-family: 'GangwonEdu', 'nanumbarungothic', sans-serif;
 }
