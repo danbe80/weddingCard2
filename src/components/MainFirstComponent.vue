@@ -21,31 +21,34 @@
         <q-carousel-slide
           :name="1"
           class="carousel_wrap"
-          :oncontextmenu="false"
+          @contextmenu="$event.preventDefault()"
           img-src="../assets/page1/Page1_Photo1.png"
         />
         <q-carousel-slide
           :name="2"
           class="carousel_wrap"
+          @contextmenu="$event.preventDefault()"
           img-src="../assets/page1/Page1_Photo2.png"
         >
         </q-carousel-slide>
         <q-carousel-slide
           :name="3"
           class="carousel_wrap"
+          @contextmenu="$event.preventDefault()"
           img-src="../assets/page1/Page1_Photo3.png"
         >
         </q-carousel-slide>
         <q-carousel-slide
           :name="4"
           class="carousel_wrap"
+          @contextmenu="$event.preventDefault()"
           img-src="../assets/page1/Page1_Photo4.png"
         >
         </q-carousel-slide>
         <q-carousel-slide
           :name="5"
           class="carousel_wrap"
-          style="margin-bottom: 5000px"
+          @contextmenu="$event.preventDefault()"
           img-src="../assets/page1/Page1_Photo5.png"
         >
         </q-carousel-slide>
@@ -64,7 +67,7 @@
   </q-card>
 </template>
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
+import { computed, ref } from 'vue';
 import { storeLang } from 'src/store/module/lang';
 const slide = ref(1);
 const lang = computed(() => storeLang.lang);
@@ -80,9 +83,6 @@ const langText = [
   },
 ];
 
-watch(lang, (newValue) => {
-  console.log(newValue);
-});
 
 </script>
 
@@ -126,6 +126,7 @@ watch(lang, (newValue) => {
   width: 100%;
   height: 100%;
   padding: 0;
+  -webkit-touch-callout:none;
 }
 
 .data_info_wrap {

@@ -73,10 +73,10 @@ p {
   }
   /* 아이폰 크기 */
   @media (min-width: 390px) and (max-width: 710px) {
-    padding: 0 2dvh 8dvh;
+    padding: 0 2dvh 6dvh;
   }
   @media (min-width: 270px) and (max-width: 389px) {
-    padding: 0 2dvh 10dvh;
+    padding: 0 2dvh 8dvh;
   }
 }
 
@@ -95,7 +95,7 @@ p {
   //margin-bottom: 5dvh;
 }
 .woman_wrap {
-  margin-top: 2dvh;
+  margin-top: 1dvh;
 }
 
 .img_wrap {

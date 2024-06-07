@@ -34,7 +34,7 @@ const lang = computed(() => storeLang.lang);
 
 const manInfo = {
     kr : [
-      '<span>유상열 • (故) 이숙향의 장남</span><span style="font-size: 2.5dvh; font-weight: bold; margin-left: 8px;">재환</span>'
+      '<span>유상열 • (<span style="font-family: \'NanumBarunGothic\', sans-serif">故</span>) 이숙향의 장남</span><span style="font-size: 2.5dvh; font-weight: bold; margin-left: 8px;">재환</span>'
     ],
     en : [
       '<span>Mr. Sangyul You’s Son</span><span style="font-size: 2.5dvh; font-weight: bold; margin-left: 8px;">Jaehwan You</span>'

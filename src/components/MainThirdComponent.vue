@@ -23,16 +23,19 @@
           :name="1"
           class="carousel_wrap"
           img-src="../assets/page3/Page3_Photo1.png"
+          @contextmenu="$event.preventDefault()"
         />
         <q-carousel-slide
           :name="2"
           class="carousel_wrap"
           img-src="../assets/page3/Page3_Photo2.png"
+          @contextmenu="$event.preventDefault()"
         />
         <q-carousel-slide
           :name="3"
           class="carousel_wrap"
           img-src="../assets/page3/Page3_Photo3.png"
+          @contextmenu="$event.preventDefault()"
         />
       </q-carousel>
     </div>
@@ -86,7 +89,7 @@ p {
 .third_slide-wrap {
   width: 100%;
   height: 72dvh;
-  padding-top: 2dvh;
+  padding-top: 3dvh;
   /* 태블릿 크기 */
   @media (min-width: 1026px) {
     height: 80dvh;
@@ -97,7 +100,7 @@ p {
   width: 100%;
   height: 70dvh;
   position: absolute;
-  top: 2dvh;
+  top: 3dvh;
   right: 0;
   z-index: 2;
   -webkit-touch-callout:none;
@@ -123,6 +126,7 @@ p {
   width: 100%;
   height: 100%;
   padding: 0;
+  -webkit-touch-callout:none;
 }
 
 .intro_wrap {

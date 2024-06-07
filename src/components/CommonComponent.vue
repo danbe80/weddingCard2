@@ -1,48 +1,41 @@
 <template>
   <q-card flat class="head-wrapper column justify-between">
-    <q-btn
-      flat
-      :label="lang?.toUpperCase()"
-      class="local_btn"
-    >
-      <q-menu
-        style="width: 80px;" :offset="[ 0, 8 ]">
-        <q-list style="min-width: 80px;">
-          <q-item
-            v-for="lang in ['kr', 'en']"
-            :key="lang"
-            clickable
-            v-close-popup
-            class="lang_list" @click="changeLang(lang)">
-            <q-item-section style="height: 100%">{{ lang.toUpperCase() }}</q-item-section>
-          </q-item>
-        </q-list>
-      </q-menu>
-    </q-btn>
 
+    <div class="local-wrapper">
+      <button
+        @click="changeLang('kr')"
+        class="local_btn"
+      >
+        <span :style="{
+          color : lang === 'kr' ? '#F5BCA9' : '#585858'}">KR</span>
+      </button>
 
+      <span style="color: #585858">|</span>
 
+      <button
+        @click="changeLang('en')"
+        class="local_btn"
+      >
+        <span :style="{color : lang === 'en' ? '#F5BCA9' : '#585858'}">EN</span>
+      </button>
+
+    </div>
   </q-card>
 </template>
 
 <script setup lang="ts">
 import { watch, computed } from 'vue';
 import { storeLang } from 'src/store/module/lang';
-
 const lang = computed(() => storeLang.lang);
 
-
-watch(lang,(newValue) => {
+watch(lang, (newValue) => {
   storeLang.changeLang(newValue);
-})
+});
 
 async function changeLang(value: string) {
   localStorage.setItem('lang', value);
   await storeLang.changeLang(value);
 }
-
-
-
 </script>
 
 <style scoped>
@@ -60,19 +53,20 @@ async function changeLang(value: string) {
     margin: 0 auto;
   }
 }
-.local_btn {
-  color: #72605c;
-  width: 80px;
-  height: 4dvh;
-  min-height: 3dvh;
-  background-color: #cfc6bc;
+.local-wrapper {
   margin-left: auto;
+  font-size: 2dvh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'NanumBarunGothic', sans-serif;
+  font-weight: 700;
+}
+.local_btn {
+  //color: #72605c;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
 }
 
-.lang_list {
-
-}
-.lang_list:after {
-  background-color: red;
-}
 </style>
