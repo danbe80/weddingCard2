@@ -1,5 +1,9 @@
 <template>
-  <q-btn class="footer_btn" :style="{backgroundColor : btnColor}" @click="onMoveWeddingInfo">
+  <q-btn
+    class="footer_btn"
+    :style="{ backgroundColor: btnColor }"
+    @click="onMoveWeddingInfo"
+  >
     <span>{{ lang == 'kr' ? btnText[selBtn].kr : btnText[selBtn].en }}</span>
   </q-btn>
 </template>
@@ -7,17 +11,17 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router';
 import { computed, onMounted, ref } from 'vue';
-import { storeFooter } from 'src/store/module/footer';
 import { storeLang } from 'src/store/module/lang';
 
-const btnText =[{
-  kr : '예식정보 보기',
-  en : 'Wedding Detail',
+const btnText = [
+  {
+    kr: '예식정보 보기',
+    en: 'Wedding Detail',
   },
   {
-    kr : '갤러리 보기',
-    en : 'Wedding Gallery',
-  }
+    kr: '갤러리 보기',
+    en: 'Wedding Gallery',
+  },
 ];
 const selBtn = ref(0);
 const router = useRouter();
@@ -25,17 +29,17 @@ const route = useRoute();
 const btnColor = ref('#c1957a');
 
 const lang = computed(() => storeLang.lang);
-const currentPath = computed(() => storeFooter.curtPath);
+
 
 onMounted(() => {
-  if(currentPath.value === '/wedding') {
+  if (route.path === '/wedding') {
     btnColor.value = '#925959';
     selBtn.value = 1;
   } else {
     btnColor.value = '#c1957a';
     selBtn.value = 0;
   }
-})
+});
 
 function onMoveWeddingInfo() {
   let chgPath = '';
@@ -52,8 +56,6 @@ function onMoveWeddingInfo() {
       selBtn.value = 0;
       break;
   }
-  localStorage.setItem('path', chgPath);
-  storeFooter.changePath(chgPath);
   router.push({ path: chgPath });
 }
 </script>
