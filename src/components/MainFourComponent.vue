@@ -37,15 +37,13 @@
           spinner-color="white"
           @contextmenu="$event.preventDefault()"
           fit="fill"
-          style="-webkit-touch-callout:none;"
+          style="-webkit-touch-callout:none;pointer-events: none;"
+          @click="$event.preventDefault()"
         />
       </div>
     </div>
 
     <q-dialog v-model="icon" >
-<!--        <span class="arrow_btn left_btn">-->
-<!--          〈-->
-<!--        </span>-->
       <q-card
         class="dialog_wrap"
       >
@@ -63,16 +61,18 @@
             v-for="(img, idx) in allUrlObjList"
             :key="img.weddingPhoto"
             :name="idx + 1"
-            style="padding: 0; border-radius: 15px; -webkit-touch-callout:none;"
+            style="padding: 0; border-radius: 15px; -webkit-touch-callout:none; pointer-events: none;"
             @contextmenu="$event.preventDefault()"
             :img-src="img.weddingPhoto"
+            @click="$event.preventDefault()"
           >
             <q-img
               @contextmenu="$event.preventDefault()"
               fit="cover"
               position="50% 50%"
-              style="height: 100%; width: 100%"
+              style="height: 100%; width: 100%; pointer-events: none;"
               :src="img.weddingPhoto"
+              @click="$event.preventDefault()"
             />
 
 
@@ -84,28 +84,6 @@
       </q-card>
 
 
-<!--      <q-carousel-control-->
-<!--        position="bottom-right"-->
-<!--        :offset="[5, 300]"-->
-<!--        style="width: 100%"-->
-<!--        class="q-gutter-xs row justify-between"-->
-<!--      >-->
-<!--      <q-btn-->
-<!--        @click="$refs.waddingImg.previous()"-->
-<!--        push round dense-->
-<!--        text-color="black" icon="arrow_left"-->
-<!--      />-->
-<!--      <q-btn-->
-<!--        push round dense-->
-<!--        @click="$refs.waddingImg?.$slots"-->
-<!--        text-color="black" icon="arrow_right"-->
-<!--      />-->
-<!--      </q-carousel-control>-->
-<!--    <span-->
-<!--      @click="$refs.carousel.previous()"-->
-<!--      class="arrow_btn right_btn">-->
-<!--      〉-->
-<!--    </span>-->
     </q-dialog>
   </q-card>
 </template>

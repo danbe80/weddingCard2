@@ -114,6 +114,7 @@ const langText = [
   right: 0;
   z-index: 2;
   -webkit-touch-callout:none;
+  pointer-events: none;
 }
 /* 슬라이드 wrapper */
 .carousel_wrapper {

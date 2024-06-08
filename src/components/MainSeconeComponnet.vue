@@ -101,6 +101,7 @@ p {
 .img_wrap {
   width: 60%;
   height: 100%;
+  pointer-events: none;
   /* 아이폰 크기 */
   @media (min-width: 390px) and (max-width: 710px) {
     width: 70%;

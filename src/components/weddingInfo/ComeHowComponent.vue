@@ -56,7 +56,7 @@
           <img
             @contextmenu="$event.preventDefault()"
             src="../../assets/mapIcon/page6_map_slot.png"
-            style="width: 100%; height: 100%; -webkit-touch-callout:none;"
+            style="width: 100%; height: 100%; -webkit-touch-callout:none;pointer-events: none;"
           />
         </q-card>
       </div>
@@ -79,7 +79,7 @@
               <q-img
                 fit="fill"
                 @contextmenu="$event.preventDefault()"
-                style="-webkit-touch-callout:none;"
+                style="-webkit-touch-callout:none; pointer-events: none;"
                 src="../../assets/mapIcon/car_icon.png"
               />
             </div>
@@ -357,6 +357,7 @@ p {
   width: 60%;
   height: 50%;
   -webkit-touch-callout:none;
+  pointer-events: none;
   /* 태블릿 크기 */
   @media (min-width: 768px) {
     width: 70%;

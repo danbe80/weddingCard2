@@ -104,6 +104,7 @@ p {
   right: 0;
   z-index: 2;
   -webkit-touch-callout:none;
+  pointer-events: none;
   /* 태블릿 크기 */
   @media (min-width: 1026px) {
     height: 80dvh;
@@ -114,6 +115,7 @@ p {
 .carousel_wrapper {
   width: 100%;
   height: 75dvh;
+  pointer-events: none;
   /* 태블릿 크기 */
   @media (min-width: 1026px) {
     padding-top: 2dvh;
@@ -127,6 +129,7 @@ p {
   height: 100%;
   padding: 0;
   -webkit-touch-callout:none;
+  pointer-events: none;
 }
 
 .intro_wrap {
