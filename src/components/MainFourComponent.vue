@@ -42,30 +42,70 @@
       </div>
     </div>
 
-    <q-dialog v-model="icon" style="width: 100vw">
+    <q-dialog v-model="icon" >
+<!--        <span class="arrow_btn left_btn">-->
+<!--          〈-->
+<!--        </span>-->
       <q-card
         class="dialog_wrap"
       >
+
         <q-carousel
-          ref="carousel"
+          ref="waddingImg"
           v-model="slide"
           animated
           swipeable
-          arrows
           infinite
-          padding
-          style="width: 100vw; height: 100%; padding: 15px"
+          thumbnails
+          style="width: 100vw; height: 100%"
         >
           <q-carousel-slide
             v-for="(img, idx) in allUrlObjList"
             :key="img.weddingPhoto"
             :name="idx + 1"
             style="padding: 0; border-radius: 15px; -webkit-touch-callout:none;"
-            :img-src="`${img.weddingPhoto}`"
             @contextmenu="$event.preventDefault()"
-          />
+            :img-src="img.weddingPhoto"
+          >
+            <q-img
+              @contextmenu="$event.preventDefault()"
+              fit="cover"
+              position="50% 50%"
+              style="height: 100%; width: 100%"
+              :src="img.weddingPhoto"
+            />
+
+
+          </q-carousel-slide>
         </q-carousel>
+
+
+
       </q-card>
+
+
+<!--      <q-carousel-control-->
+<!--        position="bottom-right"-->
+<!--        :offset="[5, 300]"-->
+<!--        style="width: 100%"-->
+<!--        class="q-gutter-xs row justify-between"-->
+<!--      >-->
+<!--      <q-btn-->
+<!--        @click="$refs.waddingImg.previous()"-->
+<!--        push round dense-->
+<!--        text-color="black" icon="arrow_left"-->
+<!--      />-->
+<!--      <q-btn-->
+<!--        push round dense-->
+<!--        @click="$refs.waddingImg?.$slots"-->
+<!--        text-color="black" icon="arrow_right"-->
+<!--      />-->
+<!--      </q-carousel-control>-->
+<!--    <span-->
+<!--      @click="$refs.carousel.previous()"-->
+<!--      class="arrow_btn right_btn">-->
+<!--      〉-->
+<!--    </span>-->
     </q-dialog>
   </q-card>
 </template>
@@ -143,8 +183,6 @@ function onClickImg(idx: number) {
 const cautionText = {
   kr: '자세한 예식 정보는 <span style="color: #dbc7c2">“예식정보 보기”</span> 클릭!',
   en: 'Want to see the <span style="color: #dbc7c2">detail of wedding</span> button Click please.',
-
-
 }
 </script>
 <style scoped>
@@ -262,10 +300,23 @@ const cautionText = {
 
 /* 사진 팝업 css */
 .dialog_wrap {
-  height: 80dvh;
+  height: 75dvh;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 15px;
+}
+
+.arrow_btn {
+  position: absolute;
+  font-size: 3dvh;
+  color: #ffffff;
+}
+.right_btn {
+  right: 5px;
+}
+.left_btn {
+  left: 5px;
 }
 </style>
