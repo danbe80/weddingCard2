@@ -173,8 +173,12 @@ const tabListText = [
     height: 55dvh;
   }
   @media (min-width: 270px) and (max-width: 389px) {
+    @media (max-height: 595px) {
+      height: 54dvh;
+    }
     height: 56dvh;
   }
+
 }
 .slide_container {
   height: 100%;
