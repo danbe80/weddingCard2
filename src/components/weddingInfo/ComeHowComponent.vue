@@ -129,7 +129,7 @@ const addressText = [
   },
   {
     kr: '서울 강남구 테헤란로 521',
-    en: '521, Teheran-ro,Gangnam-gu,Seoul',
+    en: '521, Teheran-ro,Seoul',
   }
 ]
 
