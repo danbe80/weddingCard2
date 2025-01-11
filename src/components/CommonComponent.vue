@@ -64,7 +64,7 @@ async function changeLang(value: string) {
   font-weight: 700;
 }
 .local_btn {
-  //color: #72605c;
+  /* color: #72605c; */
   background-color: rgba(0, 0, 0, 0);
   border: none;
 }
