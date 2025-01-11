@@ -1,41 +1,4 @@
-# wedding_card (wedding_card2)
+개인적인 지인에게 선물로 만들어준 모바일 청첩장입니다. <br>
+포폴에 사용할 수 있도록 청첩장 주인에게 허락 받아 올립니다.
 
-A Quasar Project
-
-## Install the dependencies
-```bash
-yarn
-# or
-npm install
-```
-
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
-
-
-### Lint the files
-```bash
-yarn lint
-# or
-npm run lint
-```
-
-
-### Format the files
-```bash
-yarn format
-# or
-npm run format
-```
-
-
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+# [모바일 청첩장](https://weddingcard-619e4.web.app)
