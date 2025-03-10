@@ -1,14 +1,18 @@
 <template>
   <q-card flat class="come_wrapper">
     <div class="address_wrapper">
-      <p class="q-mb-none">{{ lang != 'kr' ? addressText[0].en : addressText[0].kr }}</p>
+      <p class="q-mb-none">
+        {{ lang != 'kr' ? addressText[0].en : addressText[0].kr }}
+      </p>
       <div class="address_wrap">
-        <p class="address_text">{{ lang != 'kr' ? addressText[1].en : addressText[1].kr }}</p>
+        <p class="address_text">
+          {{ lang != 'kr' ? addressText[1].en : addressText[1].kr }}
+        </p>
         <q-btn
           flat
           :ripple="false"
           class="row items-center text-center justify-center copy_wrapper"
-          :class="{'eng-copy' : lang == 'en' }"
+          :class="{ 'eng-copy': lang == 'en' }"
           style="color: #b19791; padding: 0"
           @click="copyAddress"
         >
@@ -24,7 +28,9 @@
               />
             </svg>
           </div>
-          <span class="copy_text">{{ lang != 'kr' ? copyText.en : copyText.kr }}</span>
+          <span class="copy_text">{{
+            lang != 'kr' ? copyText.en : copyText.kr
+          }}</span>
         </q-btn>
       </div>
     </div>
@@ -43,8 +49,11 @@
             :src="btn.mapIcon"
             @contextmenu="$event.preventDefault()"
             class="map_img"
-            fit="fill"></q-img>
-          <span class="quick_btn">{{ lang != 'kr' ? quickText.en[idx] : quickText.kr }}</span>
+            fit="fill"
+          ></q-img>
+          <span class="quick_btn">{{
+            lang != 'kr' ? quickText.en[idx] : quickText.kr
+          }}</span>
         </q-btn>
       </div>
 
@@ -56,7 +65,12 @@
           <img
             @contextmenu="$event.preventDefault()"
             src="../../assets/mapIcon/page6_map_slot.png"
-            style="width: 100%; height: 100%; -webkit-touch-callout:none;pointer-events: none;"
+            style="
+              width: 100%;
+              height: 100%;
+              -webkit-touch-callout: none;
+              pointer-events: none;
+            "
           />
         </q-card>
       </div>
@@ -65,44 +79,50 @@
         <p style="line-height: 2dvh; letter-spacing: -1px">
           {{ lang != 'kr' ? warningText.en : warningText.kr }}
         </p>
-        <q-btn class="how_btn" @click="openNotice"> {{ lang != 'kr' ? howBtn.en : howBtn.kr }}</q-btn>
+        <q-btn class="how_btn" @click="openNotice">
+          {{ lang != 'kr' ? howBtn.en : howBtn.kr }}</q-btn
+        >
       </div>
     </div>
 
     <q-dialog v-model="transportNotice">
       <q-card class="popup_wrapper">
         <div class="com_how_info_wrap">
-          <div
-            class="title_wrapper"
-          >
-            <div style="width: 25%;">
+          <div class="title_wrapper">
+            <div style="width: 25%">
               <q-img
                 fit="fill"
                 @contextmenu="$event.preventDefault()"
-                style="-webkit-touch-callout:none; pointer-events: none;"
+                style="-webkit-touch-callout: none; pointer-events: none"
                 src="../../assets/mapIcon/car_icon.png"
               />
             </div>
-            <span style="margin-left: 1dvh">{{ lang != 'kr' ? dailogText[0].en : dailogText[0].kr }}</span>
+            <span style="margin-left: 1dvh">{{
+              lang != 'kr' ? dailogText[0].en : dailogText[0].kr
+            }}</span>
           </div>
         </div>
 
-        <div class="com_how_info_wrap" style="padding-top: 0; margin-bottom: 1dvh">
+        <div
+          class="com_how_info_wrap"
+          style="padding-top: 0; margin-bottom: 1dvh"
+        >
           <p v-html="lang != 'kr' ? dailogText[1].en : dailogText[1].kr"></p>
         </div>
 
         <div class="com_how_info_wrap">
-          <div
-            class="title_wrapper">
-            <div style="width: 18%;">
+          <div class="title_wrapper">
+            <div style="width: 18%">
               <q-img
                 fit="fill"
                 @contextmenu="$event.preventDefault()"
-                style="-webkit-touch-callout:none;"
+                style="-webkit-touch-callout: none"
                 src="../../assets/mapIcon/subway_icon.png"
               />
             </div>
-            <span style="margin-left: 1dvh">{{ lang != 'kr' ? dailogText[2].en : dailogText[2].kr }}</span>
+            <span style="margin-left: 1dvh">{{
+              lang != 'kr' ? dailogText[2].en : dailogText[2].kr
+            }}</span>
           </div>
         </div>
 
@@ -125,35 +145,31 @@ const lang = computed(() => storeLang.lang);
 const addressText = [
   {
     kr: '인터컨티넨탈 파르나스 “5층 그랜드볼룸”',
-    en: 'Parnas, IHG hotel,  5 Floor'
+    en: 'Parnas, IHG hotel,  5 Floor',
   },
   {
     kr: '서울 강남구 테헤란로 521',
     en: '521, Teheran-ro,Seoul',
-  }
-]
+  },
+];
 
 const copyText = {
   kr: '주소 복사',
-  en: 'copy'
-}
+  en: 'copy',
+};
 const quickText = {
   kr: '바로가기',
-  en: [
-    'Google',
-    'Kakao',
-    'Naver',
-  ]
-}
+  en: ['Google', 'Kakao', 'Naver'],
+};
 const warningText = {
   kr: '인터컨티넨탈 서울 코엑스 아닙니다. 주의 부탁드립니다.',
-  en: 'Upper buttons are Map Link to the Wedding'
-}
+  en: 'Upper buttons are Map Link to the Wedding',
+};
 
 const howBtn = {
   kr: '교통편 안내',
   en: 'Transportation Guide',
-}
+};
 
 const dailogText = [
   {
@@ -162,7 +178,9 @@ const dailogText = [
   },
   {
     kr: '그랜드 인터컨티넨탈 호텔 파르나스 주차장 <br />' + '4시간 무료 제공',
-    en: 'Grand InterContinental Seoul Parnas Parking Lot  <br />' + '4 Hours Free',
+    en:
+      'Grand InterContinental Seoul Parnas Parking Lot  <br />' +
+      '4 Hours Free',
   },
   {
     kr: '지하철 안내',
@@ -176,7 +194,7 @@ const dailogText = [
     kr: '<span style="color: #b08256">9호선</span> 봉은사역 6번출구 앞에서 도보 12분',
     en: '<span style="color: #b08256">Line 9</span> Bongeunsa Station, 12-minute walk from Exit 6.',
   },
-]
+];
 
 const mapList = [
   {
@@ -207,7 +225,6 @@ function copyAddress() {
   });
 }
 
-// enum 으로 변경
 function openMapApp(type: number) {
   switch (type) {
     case 0: // 구글맵
@@ -356,7 +373,7 @@ p {
 .map_img {
   width: 60%;
   height: 50%;
-  -webkit-touch-callout:none;
+  -webkit-touch-callout: none;
   pointer-events: none;
   /* 태블릿 크기 */
   @media (min-width: 768px) {
@@ -422,7 +439,6 @@ p {
   display: flex;
   flex-direction: column;
   padding: 3dvh;
-
 }
 .title_wrapper {
   width: 40%;
